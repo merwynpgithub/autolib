@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {FaFacebook} from 'react-icons/fa'
+import {FaFacebook, FaTwitter} from 'react-icons/fa'
 
 function Footer() {
   return (
@@ -12,10 +12,11 @@ function Footer() {
           <Nav className="me-auto">
             <Nav.Link href="#contact">Contact Us</Nav.Link>
           </Nav>
-
+          
           <Nav>
             <Nav.Link href="#connect">Connect With Us</Nav.Link>
-            <Nav.Link href="#connect"><FaFacebook /></Nav.Link>
+            <Nav.Link href="facebook.com"><FaFacebook /></Nav.Link>
+            <Nav.Link href="www.twitter.com"><FaTwitter /></Nav.Link>
           </Nav>
         </Container>
       </Navbar>
