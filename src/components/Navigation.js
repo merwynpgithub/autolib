@@ -22,14 +22,6 @@ function Navigation() {
         </Nav>
       </Container>
     </Navbar>
-
-    <div className="fixed-bottom">  
-      <Navbar bg="dark" variant="dark">
-          <Container fluid>
-              <Navbar.Brand>Footer</Navbar.Brand>
-          </Container>
-      </Navbar>
-    </div>
     </>
   );
 }
