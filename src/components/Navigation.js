@@ -10,7 +10,7 @@ function Navigation() {
     <>
     <Navbar bg="dark" variant="dark">
       <Container fluid>
-        <Navbar.Brand href="#home">AutoLib</Navbar.Brand>
+        <Navbar.Brand href="/">AutoLib</Navbar.Brand>
 
         <Nav className="me-auto">
           <Nav.Link href="#home">About</Nav.Link>
