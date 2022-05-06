@@ -12,11 +12,11 @@ function Footer() {
       <Navbar bg="dark" variant="dark">
         <Container fluid>
           <Nav className="me-auto">
-            <Nav.Link href="#contact">Contact Us</Nav.Link>
+            <Nav.Link href="/contact">Contact Us</Nav.Link>
           </Nav>
           
           <Nav>
-            <Nav.Link href="#connect">Connect With Us</Nav.Link>
+            <Nav.Link href="/connect">Connect With Us</Nav.Link>
             <Nav.Link href="/facebook.com"><FaFacebook /></Nav.Link>
             <Nav.Link href="/twitter.com"><FaTwitter /></Nav.Link>
           </Nav>
