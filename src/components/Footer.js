@@ -2,7 +2,9 @@ import React from 'react';
 
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {FaFacebook, FaTwitter} from 'react-icons/fa'
+import {FaFacebook, FaTwitter} from 'react-icons/fa';
+
+import './styles/footer.scss';
 
 function Footer() {
   return (
