@@ -1,7 +1,9 @@
 import React from 'react';
 
 function Home() {
-  return ;
+  return (
+    <div>Recently Added Books</div>
+  );
 }
 
 export default Home;
