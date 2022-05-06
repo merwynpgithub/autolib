@@ -1,11 +1,11 @@
 // import './App.css';
-import NavBar from './components/NavBar';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
     <div className="App">
       <h1>AutoLib</h1>
-      <NavBar />
+      <Navigation />
     </div>
   );
 }
