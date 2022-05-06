@@ -17,8 +17,8 @@ function Footer() {
           
           <Nav>
             <Nav.Link href="/connect">Connect With Us</Nav.Link>
-            <Nav.Link href="/facebook.com"><FaFacebook /></Nav.Link>
-            <Nav.Link href="/twitter.com"><FaTwitter /></Nav.Link>
+            <Nav.Link href="#" onClick={() => window.location.href = 'https://www.facebook.com'}><FaFacebook /></Nav.Link>
+            <Nav.Link href="#" onClick={() => window.location.href = 'https://www.twitter.com'}><FaTwitter /></Nav.Link>
           </Nav>
         </Container>
       </Navbar>
