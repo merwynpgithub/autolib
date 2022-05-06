@@ -2,8 +2,9 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
-import Home from './components/Home';
-import About from './components/About';
+import Home from './components/pages/Home';
+import About from './components/pages/About';
+import Books from './components/pages/Books';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/about" element={<About />}/>
+          <Route path="/books" element={<Books />}/>
         </Routes>
       </BrowserRouter>
     </div>
