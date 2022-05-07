@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React from 'react';
 
 function Books() {
+  axios.get("/api/resources").then(res=> console.log(res.data));
   return (
     <>
       <div style={
