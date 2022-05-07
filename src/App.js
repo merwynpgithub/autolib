@@ -5,6 +5,7 @@ import Navigation from './components/Navigation';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Books from './components/pages/Books';
+import Login from './components/pages/Login';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />}/>
           <Route path="/about" element={<About />}/>
           <Route path="/books" element={<Books />}/>
+          <Route path="/login" element={<Login />}/>
         </Routes>
       </BrowserRouter>
     </div>
