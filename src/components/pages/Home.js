@@ -2,7 +2,23 @@ import React from 'react';
 
 function Home() {
   return (
-    <div>Recently Added Books</div>
+    <div style={
+      {
+        width: "75%",
+        margin: "auto",
+        minWidth: "350px",
+        marginTop: "3em"
+      }
+    }>
+      <p style={
+        {
+          fontWeight: "bold",
+          fontSize: "1.5em",
+          textAlign: "center"
+        }
+      }>Recently Added Books</p>
+
+    </div>
   );
 }
 
