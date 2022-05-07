@@ -5,14 +5,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
   return (
-    <div style={{width: "40%", margin: "auto", minWidth: "350px", marginTop: "3em" }}>
+    <div style={
+      {
+        width: "40%",
+        margin: "auto",
+        minWidth: "350px",
+        marginTop: "3em"
+      }
+    }>
+      <p style={
+        {
+          fontWeight: "bold",
+          fontSize: "1.5em"
+        }
+      }>Login</p>
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email"/>
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
+          <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -26,8 +37,12 @@ function Login() {
           Submit
         </Button>
       </Form>
-      <div style={{marginTop: "1em" }}>
-        <p>First time here: <a href="/register">Sign Up</a></p>
+      <div style={
+        {marginTop: "1em"}
+      }>
+        <p>First time here:
+          <a href="/register">Sign Up</a>
+        </p>
       </div>
     </div>
   );

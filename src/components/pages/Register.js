@@ -13,29 +13,29 @@ function Login() {
         marginTop: "3em"
       }
     }>
+      <p style={
+        {
+          fontWeight: "bold",
+          fontSize: "1.5em"
+        }
+      }>Sign Up</p>
       <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>First Name</Form.Label>
           <Form.Control type="text" placeholder="Enter first name"/>
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
+          <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Last Name</Form.Label>
           <Form.Control type="text" placeholder="Enter last name"/>
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
+          <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email"/>
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
+          <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -51,8 +51,7 @@ function Login() {
       </Form>
       <div style={
         {marginTop: "1em"}
-      }>
-      </div>
+      }></div>
     </div>
   );
 }
