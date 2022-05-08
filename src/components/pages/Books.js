@@ -41,7 +41,7 @@ function Books() {
 
   return (
     <>
-      <div style={
+      <div className="container-fluid" style={
         {
           width: "75%",
           margin: "auto",
@@ -56,11 +56,8 @@ function Books() {
             textAlign: "center"
           }
         }>Grab a Book</p>
-        <div style={
+        <div className="container-fluid" style={
           {
-            width: "75%",
-            aspectRatio: "2/3",
-            margin: "auto",
             display: "flex"
           }
         }>
