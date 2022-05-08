@@ -69,11 +69,11 @@ function Book() {
             bookDetails.status
           }</p>
           {
-          bookDetails.status === "available" && <form>
+          bookDetails.status === "available" && <Form>
             <Button variant="primary" type="submit">
               Grab
             </Button>
-          </form>
+          </Form>
         } </div>
 
       </div>

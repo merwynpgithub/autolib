@@ -21,7 +21,7 @@ function Navigation() {
           <Nav>
             <Nav.Link href="/new">Add Book</Nav.Link>
             {!islogged && <Nav.Link href="/login">Sign In</Nav.Link>}
-            {islogged && <Nav.Link href="/user/:id">Carolin</Nav.Link>}
+            {islogged && <Nav.Link href="/user">Carolin</Nav.Link>}
           </Nav>
         </Container>
 
