@@ -1,5 +1,8 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
+import {Route, Routes} from 'react-router-dom';
+
+import Book from './Book';
 
 function Books() {
   const [book, setBook] = useState([]);
@@ -9,7 +12,6 @@ function Books() {
   }, [])
 
   const bookList = book.map(book => {
-
     return (
       <div key={
           book.id
@@ -26,7 +28,17 @@ function Books() {
           style={
             {height: "250px"}
           }/>
-          <p><a href={"/books/" + book.id}>{book.title}</a></p>
+        <p>
+          <a href={
+            "/books/" + book.id
+          }>
+            {
+            book.title
+          }</a>
+        </p>
+        {/* <Routes>
+          <Route path=":bookId" element={<Book/>}/>
+        </Routes> */}
       </div>
     );
   });
@@ -56,8 +68,7 @@ function Books() {
             display: "flex"
           }
         }>
-          {bookList} 
-        </div>
+          {bookList} </div>
       </div>
     </>
   );
