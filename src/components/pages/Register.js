@@ -20,13 +20,13 @@ function Login() {
         }
       }>Sign Up</p>
       <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="firstName">
           <Form.Label>First Name</Form.Label>
           <Form.Control type="text" placeholder="Enter first name"/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="lastName">
           <Form.Label>Last Name</Form.Label>
           <Form.Control type="text" placeholder="Enter last name"/>
           <Form.Text className="text-muted"></Form.Text>
