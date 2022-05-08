@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/nav.scss';
 
 function Navigation() {
+  const islogged = false;
   return (
     <>
     <Navbar bg="dark" variant="dark">
@@ -19,7 +20,8 @@ function Navigation() {
 
           <Nav>
             <Nav.Link href="/new">Add Book</Nav.Link>
-            <Nav.Link href="/login">Sign In</Nav.Link>
+            {!islogged && <Nav.Link href="/login">Sign In</Nav.Link>}
+            {islogged && <Nav.Link href="/user/:id">Carolin</Nav.Link>}
           </Nav>
         </Container>
 
