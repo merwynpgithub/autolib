@@ -18,6 +18,7 @@ function Navigation() {
           </Nav>
 
           <Nav>
+            <Nav.Link href="/new">Add Book</Nav.Link>
             <Nav.Link href="/login">Sign In</Nav.Link>
           </Nav>
         </Container>
