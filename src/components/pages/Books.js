@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import {Route, Routes} from 'react-router-dom';
 
 import Book from './Book';
 
@@ -36,9 +35,6 @@ function Books() {
             book.title
           }</a>
         </p>
-        {/* <Routes>
-          <Route path=":bookId" element={<Book/>}/>
-        </Routes> */}
       </div>
     );
   });
