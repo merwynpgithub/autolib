@@ -18,9 +18,6 @@ function Book() {
   }, [])
   return (
     <>
-      <p>This is book {
-        parameter.bookId
-      }</p>
       <div style={
         {
           width: "75%",
