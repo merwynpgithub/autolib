@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
+import {Form, Button} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Book() {
   const [bookDetails, setBookDetails] = useState({});
@@ -40,14 +42,39 @@ function Book() {
             }/>
         </div>
 
-        <div style={{marginLeft: "2em"}}> 
-          <p style={{fontSize: "1.5em"}}>{bookDetails.title}</p>
-          <p style={{fontSize: "1.2em"}}>ISBN: {bookDetails.isbn}</p>
-          <p>{bookDetails.description}</p>
-          <p>Authors: {bookDetails.authors}</p>
-          <p>Genres: {bookDetails.genres}</p>
-          <p>Status: {bookDetails.status}</p>
-        </div>
+        <div style={
+          {marginLeft: "2em"}
+        }>
+          <p style={
+            {fontSize: "1.5em"}
+          }>
+            {
+            bookDetails.title
+          }</p>
+          <p style={
+            {fontSize: "1.2em"}
+          }>ISBN: {
+            bookDetails.isbn
+          }</p>
+          <p>{
+            bookDetails.description
+          }</p>
+          <p>Authors: {
+            bookDetails.authors
+          }</p>
+          <p>Genres: {
+            bookDetails.genres
+          }</p>
+          <p>Status: {
+            bookDetails.status
+          }</p>
+          {
+          bookDetails.status === "available" && <form>
+            <Button variant="primary" type="submit">
+              Grab
+            </Button>
+          </form>
+        } </div>
 
       </div>
 
