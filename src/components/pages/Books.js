@@ -1,8 +1,13 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Books() {
-  axios.get("/api/resources").then(res=> console.log(res.data));
+  const [book, setBook] = useState([]);
+  
+  useEffect(() => {
+    axios.get("/api/resources").then(res=> setBook(res.data));
+  }, [])
+
   return (
     <>
       <div style={
