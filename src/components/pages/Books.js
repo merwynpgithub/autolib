@@ -9,6 +9,7 @@ function Books() {
   }, [])
 
   const bookList = book.map(book => {
+
     return (
       <div key={
           book.id
@@ -25,7 +26,7 @@ function Books() {
           style={
             {height: "250px"}
           }/>
-          <p>{book.title}</p>
+          <p><a href={"/books/" + book.id}>{book.title}</a></p>
       </div>
     );
   });
