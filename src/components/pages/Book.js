@@ -4,6 +4,8 @@ import {useParams} from 'react-router-dom';
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Navigation from '../Navigation';
+
 function Book() {
   const [bookDetails, setBookDetails] = useState({});
 
@@ -20,6 +22,7 @@ function Book() {
   }, [])
   return (
     <>
+    <Navigation />
       <div style={
         {
           width: "75%",

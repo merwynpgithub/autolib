@@ -1,7 +1,10 @@
 import React from 'react';
+import Navigation from '../Navigation';
 
 function Home() {
   return (
+    <>
+    <Navigation />
     <div style={
       {
         width: "75%",
@@ -19,6 +22,7 @@ function Home() {
       }>Recently Added Books</p>
 
     </div>
+    </>
     
   );
 }

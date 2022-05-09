@@ -1,9 +1,18 @@
 import React from 'react';
+import { useNavigate} from 'react-router-dom';
 
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Login() {
+function Register() {
+  let navigate = useNavigate();
+  
+  function handleSubmit() {
+    //Use Local storage to set and clear logged in users
+   localStorage.setItem("islogged", "true");
+    navigate("/");
+  }
+
   return (
     <div style={
       {
@@ -19,7 +28,7 @@ function Login() {
           fontSize: "1.5em"
         }
       }>Sign Up</p>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="firstName">
           <Form.Label>First Name</Form.Label>
           <Form.Control type="text" placeholder="Enter first name"/>
@@ -56,4 +65,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

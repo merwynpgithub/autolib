@@ -2,8 +2,13 @@ import React from 'react';
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Navigation from '../Navigation';
+
 function NewBook() {
   return (
+
+    <>
+    <Navigation />
     <div style={
       {
         width: "40%",
@@ -40,6 +45,7 @@ function NewBook() {
         </Button>
       </Form>
     </div>
+    </>
   );
 }
 

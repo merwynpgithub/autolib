@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navigation />
+        {/* <Navigation /> */}
 
         <Routes>
           <Route path="/" element={<Home />}/>
@@ -27,7 +27,7 @@ function App() {
           <Route path="/register" element={<Register />}/>
           <Route path="/user" element={<User />}/>
         </Routes>
-        
+
         <Footer />
       </BrowserRouter>
     </div>

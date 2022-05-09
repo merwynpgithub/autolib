@@ -1,7 +1,10 @@
 import React from 'react';
+import Navigation from '../Navigation';
 
 function About() {
   return (
+    <>
+    <Navigation />
     <div style={
       {
         width: "75%",
@@ -21,6 +24,7 @@ function About() {
       <p>AutoLib aims at combining the concept of peer to peer sharing with a traditional functionality of a library.</p>
 
     </div>
+    </>
   );
 }
 

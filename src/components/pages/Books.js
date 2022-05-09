@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 
+import Navigation from '../Navigation';
 import '../styles/books.scss';
 
 function Books() {
@@ -23,6 +24,7 @@ function Books() {
 
   return (
     <>
+      <Navigation />
       <div className="container-fluid book-display" >
         <p id="grab">Grab a Book</p>
         <div className="container-fluid books" >{bookList} </div>
