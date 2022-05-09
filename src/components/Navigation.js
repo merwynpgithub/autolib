@@ -6,12 +6,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/nav.scss';
 
 function Navigation() {
-  const [islogged, setLogged] = useState();
+  const [islogged, setLogged] = useState(localStorage.islogged);
   
   function handleClick(e) {
     //Use Local storage to set and clear logged in users
-    // localStorage.setItem("name", null)
-    setLogged(false);
+    localStorage.removeItem("islogged")
   }
   return (
     <>

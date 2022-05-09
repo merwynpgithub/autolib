@@ -4,6 +4,9 @@ import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
+   //Use Local storage to set and clear logged in users
+  localStorage.setItem("islogged", "true");
+
   return (
     <div style={
       {
