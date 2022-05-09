@@ -27,6 +27,7 @@ function Navigation() {
             <Nav.Link href="/new">Add Book</Nav.Link>
             {!islogged && <Nav.Link href="/login">Sign In</Nav.Link>}
             {islogged && <DropdownButton id="dropdown-basic-button" title="Carolin">
+              <Dropdown.Item href="/user">Profile</Dropdown.Item>
               <Dropdown.Item href="/" onClick={handleClick}>Logout</Dropdown.Item>
             </DropdownButton>}
           </Nav>
