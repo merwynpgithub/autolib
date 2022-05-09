@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 
+import '../styles/books.scss';
+
 function Books() {
   const [book, setBook] = useState([]);
 
@@ -10,21 +12,8 @@ function Books() {
 
   const bookList = book.map(book => {
     return (
-      <div key={
-          book.id
-        }
-        style={
-          {margin: "10px"}
-      }>
-        <img src={
-            book.cover_image
-          }
-          alt={
-            book.title
-          }
-          style={
-            {height: "250px"}
-          }/>
+      <div className="book-list" key={book.id}>
+        <img src={book.cover_image} alt={book.title} />
         <p>
           <a href={
             "/books/" + book.id
@@ -39,14 +28,7 @@ function Books() {
 
   return (
     <>
-      <div className="container-fluid" style={
-        {
-          width: "75%",
-          margin: "auto",
-          minWidth: "350px",
-          marginTop: "3em"
-        }
-      }>
+      <div className="container-fluid book-display" >
         <p style={
           {
             fontWeight: "bold",
