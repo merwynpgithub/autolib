@@ -9,6 +9,8 @@ function Navigation() {
   const [islogged, setLogged] = useState();
   
   function handleClick(e) {
+    //Use Local storage to set and clear logged in users
+    // localStorage.setItem("name", null)
     setLogged(false);
   }
   return (
