@@ -10,7 +10,7 @@ function Navigation() {
   
   function handleClick(e) {
     //Use Local storage to set and clear logged in users
-    localStorage.removeItem("islogged")
+    localStorage.removeItem("islogged");
   }
   return (
     <>
