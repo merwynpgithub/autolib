@@ -24,13 +24,7 @@ function Books() {
   return (
     <>
       <div className="container-fluid book-display" >
-        <p style={
-          {
-            fontWeight: "bold",
-            fontSize: "1.5em",
-            textAlign: "center"
-          }
-        }>Grab a Book</p>
+        <p id="grab">Grab a Book</p>
         <div className="container-fluid books" >{bookList} </div>
       </div>
     </>
