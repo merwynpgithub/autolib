@@ -28,13 +28,13 @@ function User() {
       <div style={{display: "flex"}}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email"/>
+          <Form.Control type="email" placeholder="carolin@gmail.com"/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicAddress">
           <Form.Label>Street Address</Form.Label>
-          <Form.Control type="text" placeholder="Enter street address"/>
+          <Form.Control type="text" placeholder="1255 Devonshire Crescent"/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
       </div>
@@ -42,13 +42,13 @@ function User() {
       <div style={{display: "flex"}}>
       <Form.Group className="mb-3" controlId="formBasiczipCode">
           <Form.Label>Street Zip Code</Form.Label>
-          <Form.Control type="text" placeholder="Enter zip code"/>
+          <Form.Control type="text" placeholder="V6H 2G2"/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicCity">
           <Form.Label>Street City</Form.Label>
-          <Form.Control type="text" placeholder="Enter city"/>
+          <Form.Control type="text" placeholder="Vancouver"/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
       </div>
@@ -56,7 +56,7 @@ function User() {
       <div style={{display: "flex"}}>
         <Form.Group className="mb-3" controlId="formBasicProvince">
           <Form.Label>Province</Form.Label>
-          <Form.Control type="text" placeholder="Enter province"/>
+          <Form.Control type="text" placeholder="BC"/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
