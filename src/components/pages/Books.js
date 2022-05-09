@@ -15,12 +15,7 @@ function Books() {
       <div className="book-list" key={book.id}>
         <img src={book.cover_image} alt={book.title} />
         <p>
-          <a href={
-            "/books/" + book.id
-          }>
-            {
-            book.title
-          }</a>
+          <a href={"/books/" + book.id}>{book.title}</a>
         </p>
       </div>
     );
@@ -36,15 +31,7 @@ function Books() {
             textAlign: "center"
           }
         }>Grab a Book</p>
-        <div className="container-fluid" style={
-          {
-            display: "flex",
-            justifyContent: "space-around",
-            overflowX: "auto",
-            border: "1px solid black"
-          }
-        }>
-          {bookList} </div>
+        <div className="container-fluid books" >{bookList} </div>
       </div>
     </>
   );

@@ -11,3 +11,10 @@
   min-width: 350px;
   margin-top: 3em;
 }
+
+.books {
+  display: flex;
+  justify-content: space-around;
+  overflow-x: auto;
+  border: 1px solid black;
+}
