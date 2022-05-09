@@ -58,7 +58,8 @@ function Books() {
         }>Grab a Book</p>
         <div className="container-fluid" style={
           {
-            display: "flex"
+            display: "flex",
+            overflowX: "auto"
           }
         }>
           {bookList} </div>
