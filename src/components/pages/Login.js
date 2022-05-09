@@ -1,11 +1,17 @@
 import React from 'react';
+import { useNavigate} from 'react-router-dom';
 
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
-   //Use Local storage to set and clear logged in users
-  localStorage.setItem("islogged", "true");
+  let navigate = useNavigate();
+
+  function handleSubmit() {
+    //Use Local storage to set and clear logged in users
+   localStorage.setItem("islogged", "true");
+    navigate("/");
+  }
 
   return (
     <div style={
@@ -22,7 +28,7 @@ function Login() {
           fontSize: "1.5em"
         }
       }>Login</p>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email"/>

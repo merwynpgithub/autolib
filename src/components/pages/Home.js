@@ -19,6 +19,7 @@ function Home() {
       }>Recently Added Books</p>
 
     </div>
+    
   );
 }
 
