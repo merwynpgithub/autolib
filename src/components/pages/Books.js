@@ -59,7 +59,9 @@ function Books() {
         <div className="container-fluid" style={
           {
             display: "flex",
-            overflowX: "auto"
+            justifyContent: "space-around",
+            overflowX: "auto",
+            border: "1px solid black"
           }
         }>
           {bookList} </div>
