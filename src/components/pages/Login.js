@@ -12,10 +12,9 @@ function Login() {
     e.preventDefault();
     const email = document.getElementById("formBasicEmail").value;
     const loginData = {email};
-    console.log("email", loginData);
+
     axios.post("/login", loginData)
     .then(res => {
-      console.log("axios-post", res.data);
 
       //Use Local storage to set and clear logged in users
      localStorage.setItem("islogged", "true");

@@ -7,10 +7,11 @@ import './styles/nav.scss';
 
 function Navigation() {
   const [islogged, setLogged] = useState(localStorage.islogged);
-  
+
   function handleClick(e) {
     //Use Local storage to set and clear logged in users
     localStorage.removeItem("islogged");
+    localStorage.removeItem("user");
   }
   return (
     <>
@@ -26,7 +27,7 @@ function Navigation() {
           <Nav>
             <Nav.Link href="/new">Add Book</Nav.Link>
             {!islogged && <Nav.Link href="/login">Sign In</Nav.Link>}
-            {islogged && <DropdownButton id="dropdown-basic-button" title="Carolin">
+            {islogged && <DropdownButton id="dropdown-basic-button" title={JSON.parse(localStorage.user)["first_name"]}>
               <Dropdown.Item href="/user">Profile</Dropdown.Item>
               <Dropdown.Item href="/" onClick={handleClick}>Logout</Dropdown.Item>
             </DropdownButton>}
