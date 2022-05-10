@@ -13,19 +13,13 @@ function User() {
     <>
     <Navigation />
     <div className="user-container" >
-      <p style={
-        {
-          fontWeight: "bold",
-          fontSize: "1.5em",
-          textAlign: "center"
-        }
-      }>{user.first_name} {user.last_name}</p>
-      <div style={{display: "flex", justifyContent: "space-between"}}>
-        <p style={{padding: "0 1em 0 0"}}>First Name: {user.first_name}</p>
-        <p style={{padding: "0 0 0 1em"}}>Last Name: {user.last_name}</p>
+      <p className="user-header">{user.first_name} {user.last_name}</p>
+      <div className="user-details">
+        <p>First Name: {user.first_name}</p>
+        <p>Last Name: {user.last_name}</p>
       </div>
       <Form>
-      <div style={{display: "flex", justifyContent: "space-between"}}>
+      <div className="user-details">
       <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder={user.email}/>
@@ -39,7 +33,7 @@ function User() {
         </Form.Group>
       </div>
         
-      <div style={{display: "flex"}}>
+      <div className="user-details">
       <Form.Group className="mb-3" controlId="formBasiczipCode">
           <Form.Label>Street Zip Code</Form.Label>
           <Form.Control type="text" placeholder={user.zip_code}/>
@@ -53,7 +47,7 @@ function User() {
         </Form.Group>
       </div>
         
-      <div style={{display: "flex"}}>
+      <div className="user-details">
         <Form.Group className="mb-3" controlId="formBasicProvince">
           <Form.Label>Province</Form.Label>
           <Form.Control type="text" placeholder={user.province}/>
