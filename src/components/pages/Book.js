@@ -85,7 +85,7 @@ function Book() {
         {
           bookDetails.status === "available" && notLogged && <Form>
             <Button variant="primary" type="submit" disabled>
-              Grab
+              Login to Grab
             </Button>
           </Form>
         }
