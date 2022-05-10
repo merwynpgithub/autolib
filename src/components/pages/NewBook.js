@@ -68,7 +68,7 @@ function NewBook() {
       }
     }
     >
-      <h2>New Book Form</h2>
+      <h2>Add a Book</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="isbn">
           <Form.Label>ISBN</Form.Label>
