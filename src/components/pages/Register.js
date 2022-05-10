@@ -12,9 +12,9 @@ function Register() {
     e.preventDefault();
 
     //Save New User Form Details
-    const first_name = document.getElementById("firstName");
-    const last_name = document.getElementById("lastName");
-    const email = document.getElementById("formBasicEmail");
+    const first_name = document.getElementById("firstName").value;
+    const last_name = document.getElementById("lastName").value;
+    const email = document.getElementById("formBasicEmail").value;
     const user = { first_name, last_name, email };
 
     //POST request
