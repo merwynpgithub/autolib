@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from '../Navigation';
 
 function User() {
+  const user = JSON.parse(localStorage.user);
+  console.log(user);
   return (
     <>
     <Navigation />
