@@ -8,6 +8,10 @@ import Navigation from '../Navigation';
 
 function NewBook() {
 
+  //For Submit button
+  let notLogged = true;
+  if (localStorage.getItem("user")) notLogged = false;
+
   function handleBlur(e) {
     const URL = "/api/openlibrary/by_isbn/";
     const isbn = e.target.value;
@@ -56,9 +60,12 @@ function NewBook() {
           <Form.Label>Description</Form.Label>
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        {notLogged && <Button variant="primary" type="submit" disabled>
+          Login to Submit
+        </Button>}
+        {!notLogged && <Button variant="primary" type="submit">
           Submit
-        </Button>
+        </Button>}
       </Form>
     </div>
     </>
