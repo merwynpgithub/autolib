@@ -2,12 +2,22 @@ import React from 'react';
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import axios from 'axios';
+
 import Navigation from '../Navigation';
 
 function NewBook() {
 
   function handleBlur(e) {
-    console.log(e.target.value);
+    const URL = "/api/openlibrary/by_isbn/";
+    const isbn = e.target.value;
+    const isbnURL = URL + isbn;
+
+    axios.get(isbnURL)
+      .then(res => {
+        console.log(res.data);
+        
+      });
   }
 
   return (
