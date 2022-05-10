@@ -8,8 +8,9 @@ import Navigation from '../Navigation';
 
 function Book() {
   const [bookDetails, setBookDetails] = useState({});
-  let notLogged = true;
 
+  //For Grab button
+  let notLogged = true;
   if (localStorage.getItem("user")) notLogged = false;
 
   const parameter = useParams();
@@ -19,7 +20,6 @@ function Book() {
     axios.get("/api/resources").then(res => {
       const bookArray = res.data;
       const renderedBook = bookArray.filter(book => book.id === bookId);
-      console.log(renderedBook);
       setBookDetails(renderedBook[0]);
     });
   }, [])
