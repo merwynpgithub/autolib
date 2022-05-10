@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import {Form, Button} from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
@@ -11,7 +11,7 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     const email = document.getElementById("formBasicEmail").value;
-    const loginData = {email};
+    const loginData = { email };
 
     axios.post("/login", loginData)
     .then(res => {
@@ -49,9 +49,7 @@ function Login() {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password"/>
         </Form.Group>
-        {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out"/>
-        </Form.Group> */}
+        
         <Button variant="primary" type="submit">
           Submit
         </Button>
