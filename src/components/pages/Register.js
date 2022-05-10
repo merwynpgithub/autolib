@@ -7,7 +7,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Register() {
   let navigate = useNavigate();
   
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    //Save New User Form Details
+    const first_name = document.getElementById("firstName");
+    const last_name = document.getElementById("lastName");
+    const email = document.getElementById("formBasicEmail");
     //Use Local storage to set and clear logged in users
    localStorage.setItem("islogged", "true");
     navigate("/");
