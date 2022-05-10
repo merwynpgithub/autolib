@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -7,10 +8,12 @@ import axios from 'axios';
 import Navigation from '../Navigation';
 
 function NewBook() {
+  let navigate = useNavigate();
 
   //For Submit button
   let notLogged = true;
   if (localStorage.getItem("user")) notLogged = false;
+  let cover_image = "";
 
   function handleBlur(e) {
     const URL = "/api/openlibrary/by_isbn/";
@@ -22,16 +25,34 @@ function NewBook() {
         document.getElementById("title").value = res.data.title;
         document.getElementById("author").value = res.data.authors;
         document.getElementById("description").value = res.data.title;
+        cover_image = res.data.coverImage;
       });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    
-    document.getElementById("isbn").value = "";
-    document.getElementById("title").value = "";
-    document.getElementById("author").value = "";
-    document.getElementById("description").value = "";
+
+    const isbn = document.getElementById("isbn").value;
+    const authors = document.getElementById("author").value;
+    const title = document.getElementById("title").value;
+    const description = document.getElementById("title").value;
+    const genres = "";
+    const current_possessor_id = localStorage.user.id;
+    const ownerId = localStorage.user.id;
+    const status = "available";
+
+    //post book data
+    axios.post("/api/resources", {isbn, title, authors, description, cover_image, current_possessor_id, ownerId, status})
+      .then(res => {
+        //clear form
+        document.getElementById("isbn").value = "";
+        document.getElementById("title").value = "";
+        document.getElementById("author").value = "";
+        document.getElementById("description").value = "";
+        
+        navigate("/")})
+      .catch(err => console.log(err))
+
   }
 
   return (
@@ -57,7 +78,7 @@ function NewBook() {
 
         <Form.Group className="mb-3" controlId="title">
           <Form.Label>Title</Form.Label>
-          <Form.Control type="text" placeholder="Enter Title"/>
+          <Form.Control type="text" placeholder="Enter Title" required/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="author">
