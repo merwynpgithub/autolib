@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { useNavigate} from 'react-router-dom';
 
 import {Form, Button} from 'react-bootstrap';
@@ -7,10 +8,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Login() {
   let navigate = useNavigate();
 
-  function handleSubmit() {
-    //Use Local storage to set and clear logged in users
-   localStorage.setItem("islogged", "true");
-    navigate("/");
+  function handleSubmit(e) {
+    e.preventDefault();
+    const email = document.getElementById("formBasicEmail").value;
+    const loginData = {email};
+    console.log("email", loginData);
+    axios.post("/login", loginData)
+    .then(res => {
+      console.log("axios-post", res.data);
+
+      //Use Local storage to set and clear logged in users
+     localStorage.setItem("islogged", "true");
+     localStorage.setItem("user", JSON.stringify(res.data));
+      navigate("/");
+    });
   }
 
   return (
