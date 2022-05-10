@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,6 +9,7 @@ import Navigation from '../Navigation';
 import '../styles/user.scss';
 
 function User() {
+  let navigate = useNavigate();
   const user = JSON.parse(localStorage.user);
   function handleSubmit(e) {
     e.preventDefault();
