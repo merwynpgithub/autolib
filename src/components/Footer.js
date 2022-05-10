@@ -7,12 +7,19 @@ import {FaFacebook, FaTwitter, FaGithub} from 'react-icons/fa';
 import './styles/footer.scss';
 
 function Footer() {
+  const tooltip = "AutoLib is a way of sharing books among closely knit community members";
   return (
     <footer className="fixed-bottom">
       <Navbar bg="dark" variant="dark">
         <Container fluid>
           <Nav className="me-auto">
-            <Nav.Link href="/contact">Contact Us</Nav.Link>
+            <p title={tooltip} style={
+              {
+                color: "rgba(255,255,255,.55)",
+                paddingTop: "0.75em",
+                paddingRight: "1.5em"
+              }
+            }>Contact Us</p>
           </Nav>
 
           <Nav>
