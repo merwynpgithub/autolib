@@ -5,6 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from '../Navigation';
 
 function NewBook() {
+
+  function handleBlur(e) {
+    console.log(e.target.value);
+  }
+
   return (
 
     <>
@@ -22,7 +27,7 @@ function NewBook() {
       <Form>
         <Form.Group className="mb-3" controlId="isbn">
           <Form.Label>ISBN</Form.Label>
-          <Form.Control type="text" placeholder="Enter ISBN"/>
+          <Form.Control type="text" placeholder="Enter ISBN" onBlur={handleBlur}/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
