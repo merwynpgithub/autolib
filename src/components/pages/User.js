@@ -4,6 +4,7 @@ import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Navigation from '../Navigation';
+import '../styles/user.scss';
 
 function User() {
   const user = JSON.parse(localStorage.user);
@@ -11,14 +12,7 @@ function User() {
   return (
     <>
     <Navigation />
-    <div style={
-      {
-        width: "40%",
-        margin: "auto",
-        minWidth: "350px",
-        marginTop: "3em"
-      }
-    }>
+    <div className="user-container" >
       <p style={
         {
           fontWeight: "bold",
