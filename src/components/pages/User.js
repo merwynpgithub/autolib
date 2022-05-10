@@ -26,12 +26,12 @@ function User() {
           textAlign: "center"
         }
       }>{user.first_name} {user.last_name}</p>
-      <div style={{display: "flex"}}>
+      <div style={{display: "flex", justifyContent: "space-between"}}>
         <p style={{padding: "0 1em 0 0"}}>First Name: {user.first_name}</p>
         <p style={{padding: "0 0 0 1em"}}>Last Name: {user.last_name}</p>
       </div>
       <Form>
-      <div style={{display: "flex"}}>
+      <div style={{display: "flex", justifyContent: "space-between"}}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder={user.email}/>
