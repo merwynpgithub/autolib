@@ -91,7 +91,7 @@ function NewBook() {
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
         {notLogged && <Button variant="primary" type="submit" disabled>
-          Login to Submit
+          Sign In to Submit
         </Button>}
         {!notLogged && <Button variant="primary" type="submit">
           Submit
