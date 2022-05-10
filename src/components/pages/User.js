@@ -14,11 +14,11 @@ function User() {
     //Save New User Form Details
     const first_name = user.first_name;
     const last_name = user.last_name;
-    const email = document.getElementById("formBasicEmail");
-    const street_address = document.getElementById("formBasicAddress");
-    const zip_code = document.getElementById("formBasiczipCode");
-    const province = document.getElementById("formBasicProvince");
-    const city = document.getElementById("formBasicCity");
+    const email = document.getElementById("formBasicEmail").value;
+    const street_address = document.getElementById("formBasicAddress").value;
+    const zip_code = document.getElementById("formBasiczipCode").value;
+    const province = document.getElementById("formBasicProvince").value;
+    const city = document.getElementById("formBasicCity").value;
     const userData = { first_name, last_name, email, street_address, zip_code, province, city };
 
     //POST request
