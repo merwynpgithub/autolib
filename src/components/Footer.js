@@ -13,23 +13,11 @@ function Footer() {
       <Navbar bg="dark" variant="dark">
         <Container fluid>
           <Nav className="me-auto">
-            <p title={tooltip} style={
-              {
-                color: "rgba(255,255,255,.55)",
-                paddingTop: "0.75em",
-                paddingRight: "1.5em"
-              }
-            }>Contact Us</p>
+            <p className="footer-text" title={tooltip}>Contact Us</p>
           </Nav>
 
           <Nav>
-            <p style={
-              {
-                color: "rgba(255,255,255,.55)",
-                paddingTop: "0.75em",
-                paddingRight: "1.5em"
-              }
-            }>Connect With Us</p>
+            <p className="footer-text">Connect With Us</p>
             <Nav.Link href="http://www.facebook.com"><FaFacebook/></Nav.Link>
             <Nav.Link href="http://www.twitter.com"><FaTwitter/></Nav.Link>
             <Nav.Link href="http://www.github.com"><FaGithub/></Nav.Link>

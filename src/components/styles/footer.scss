@@ -3,6 +3,13 @@ footer  {
     height: 200px;
   }
 }
+
+.footer-text {
+  color: rgba(255,255,255,.55);
+  padding-top: 0.75em;
+  padding-right: 1.5em;
+}
+
 @media only screen and (max-width: 450px) {
   footer  {
     .container-fluid {
