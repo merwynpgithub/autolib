@@ -8,6 +8,9 @@ import Navigation from '../Navigation';
 
 function Book() {
   const [bookDetails, setBookDetails] = useState({});
+  let notLogged = true;
+
+  if (localStorage.getItem("user")) notLogged = false;
 
   const parameter = useParams();
   const bookId = Number(parameter.bookId);
@@ -20,6 +23,7 @@ function Book() {
       setBookDetails(renderedBook[0]);
     });
   }, [])
+
   return (
     <>
     <Navigation />
@@ -72,12 +76,20 @@ function Book() {
             bookDetails.status
           }</p>
           {
-          bookDetails.status === "available" && <Form>
+          bookDetails.status === "available" && localStorage.getItem("user") && <Form>
             <Button variant="primary" type="submit">
               Grab
             </Button>
           </Form>
-        } </div>
+        }
+        {
+          bookDetails.status === "available" && notLogged && <Form>
+            <Button variant="primary" type="submit" disabled>
+              Grab
+            </Button>
+          </Form>
+        }
+         </div>
 
       </div>
 
