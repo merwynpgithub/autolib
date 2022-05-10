@@ -7,7 +7,7 @@ import Navigation from '../Navigation';
 
 function User() {
   const user = JSON.parse(localStorage.user);
-  console.log(user);
+
   return (
     <>
     <Navigation />
@@ -25,22 +25,22 @@ function User() {
           fontSize: "1.5em",
           textAlign: "center"
         }
-      }>Carolin McDonald</p>
+      }>{user.first_name} {user.last_name}</p>
       <div style={{display: "flex"}}>
-        <p style={{padding: "0 1em 0 0"}}>First Name: Carolin</p>
-        <p style={{padding: "0 0 0 1em"}}>Last Name: McDonald</p>
+        <p style={{padding: "0 1em 0 0"}}>First Name: {user.first_name}</p>
+        <p style={{padding: "0 0 0 1em"}}>Last Name: {user.last_name}</p>
       </div>
       <Form>
       <div style={{display: "flex"}}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="carolin@gmail.com"/>
+          <Form.Control type="email" placeholder={user.email}/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicAddress">
           <Form.Label>Street Address</Form.Label>
-          <Form.Control type="text" placeholder="1255 Devonshire Crescent"/>
+          <Form.Control type="text" placeholder={user.street_address}/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
       </div>
@@ -48,13 +48,13 @@ function User() {
       <div style={{display: "flex"}}>
       <Form.Group className="mb-3" controlId="formBasiczipCode">
           <Form.Label>Street Zip Code</Form.Label>
-          <Form.Control type="text" placeholder="V6H 2G2"/>
+          <Form.Control type="text" placeholder={user.zip_code}/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicCity">
           <Form.Label>Street City</Form.Label>
-          <Form.Control type="text" placeholder="Vancouver"/>
+          <Form.Control type="text" placeholder={user.city}/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
       </div>
@@ -62,7 +62,7 @@ function User() {
       <div style={{display: "flex"}}>
         <Form.Group className="mb-3" controlId="formBasicProvince">
           <Form.Label>Province</Form.Label>
-          <Form.Control type="text" placeholder="BC"/>
+          <Form.Control type="text" placeholder={user.province}/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
