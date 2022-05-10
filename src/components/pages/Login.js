@@ -58,7 +58,7 @@ function Login() {
         {marginTop: "1em"}
       }>
         <p>First time here:
-          <a href="/register">Sign Up</a>
+          <a href="/register" style={{margin: "1.5em"}}>Sign Up</a>
         </p>
       </div>
     </div>
