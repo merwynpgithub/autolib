@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import {Container, Navbar, Nav} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FaFacebook, FaTwitter} from 'react-icons/fa';
 
@@ -14,11 +14,17 @@ function Footer() {
           <Nav className="me-auto">
             <Nav.Link href="/contact">Contact Us</Nav.Link>
           </Nav>
-          
+
           <Nav>
-            <Nav.Link href="/connect">Connect With Us</Nav.Link>
-            <Nav.Link href="http://www.facebook.com"><FaFacebook /></Nav.Link>
-            <Nav.Link href="http://www.twitter.com"><FaTwitter /></Nav.Link>
+            <p style={
+              {
+                color: "rgba(255,255,255,.55)",
+                paddingTop: "0.75em",
+                paddingRight: "1.5em"
+              }
+            }>Connect With Us</p>
+            <Nav.Link href="http://www.facebook.com"><FaFacebook/></Nav.Link>
+            <Nav.Link href="http://www.twitter.com"><FaTwitter/></Nav.Link>
           </Nav>
         </Container>
       </Navbar>
