@@ -3,6 +3,7 @@ import { useNavigate} from 'react-router-dom';
 
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 
 function Register() {
   let navigate = useNavigate();
@@ -14,9 +15,16 @@ function Register() {
     const first_name = document.getElementById("firstName");
     const last_name = document.getElementById("lastName");
     const email = document.getElementById("formBasicEmail");
-    //Use Local storage to set and clear logged in users
-   localStorage.setItem("islogged", "true");
-    navigate("/");
+    const user = { first_name, last_name, email };
+
+    //POST request
+    axios.post("/api/users", user)
+      .then(res => {
+        //Use Local storage to set new users
+        localStorage.setItem("user", JSON.stringify(user));
+        navigate("/");
+      })
+      .catch(err => console.log(err));
   }
 
   return (
