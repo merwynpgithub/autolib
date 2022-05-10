@@ -25,6 +25,15 @@ function NewBook() {
       });
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    
+    document.getElementById("isbn").value = "";
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = "";
+    document.getElementById("description").value = "";
+  }
+
   return (
 
     <>
@@ -39,7 +48,7 @@ function NewBook() {
     }
     >
       <h2>New Book Form</h2>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="isbn">
           <Form.Label>ISBN</Form.Label>
           <Form.Control type="text" placeholder="Enter ISBN" onBlur={handleBlur}/>
