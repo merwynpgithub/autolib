@@ -15,8 +15,8 @@ function User() {
     <div className="user-container" >
       <p className="user-header">{user.first_name} {user.last_name}</p>
       <div className="user-details">
-        <p>First Name: {user.first_name}</p>
-        <p>Last Name: {user.last_name}</p>
+        <p><span className="name">First Name:</span> {user.first_name}</p>
+        <p><span className="name">Last Name:</span>  {user.last_name}</p>
       </div>
       <Form>
       <div className="user-details">
