@@ -17,7 +17,7 @@ function Login() {
     .then(res => {
 
       //Use Local storage to set and clear logged in users
-     localStorage.setItem("islogged", "true");
+     localStorage.setItem("islogged", true);
      localStorage.setItem("user", JSON.stringify(res.data));
       navigate("/");
     });
