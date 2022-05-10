@@ -15,8 +15,9 @@ function NewBook() {
 
     axios.get(isbnURL)
       .then(res => {
-        console.log(res.data);
         document.getElementById("title").value = res.data.title;
+        document.getElementById("author").value = res.data.authors;
+        document.getElementById("description").value = res.data.title;
       });
   }
 
