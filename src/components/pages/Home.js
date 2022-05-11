@@ -26,7 +26,7 @@ function Home() {
       <div className='section_1'>
         <h1>A NEW WAY TO READ</h1>
         <p>Browse and request your favourite books in your neighbourhood. Pick them up at your convenience, and pass them on once you’re done reading. It’s that simple!</p>
-        <img src="/arrow.gif" />
+        <img src="/arrow.gif" alt="arrow" />
       </div>
       <div className="container-fluid books_home section_2" >{bookList} </div>
     </div>
