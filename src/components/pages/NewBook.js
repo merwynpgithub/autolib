@@ -38,13 +38,13 @@ function NewBook() {
     const authors = document.getElementById("author").value;
     const title = document.getElementById("title").value;
     const description = document.getElementById("title").value;
-    const genres = "";
+    const genres = document.getElementById("genres").value;
     const current_possessor_id = localStorage.user.id;
     const ownerId = localStorage.user.id;
     const status = "available";
 
     //post book data
-    axios.post("/api/resources", {isbn, title, authors, description, cover_image, current_possessor_id, ownerId, status})
+    axios.post("/api/resources", {isbn, title, authors, genres, description, cover_image, current_possessor_id, ownerId, status})
       .then(res => {
         //clear form
         document.getElementById("isbn").value = "";
