@@ -25,6 +25,8 @@ function NewBook() {
         document.getElementById("title").value = res.data.title;
         document.getElementById("author").value = res.data.authors;
         document.getElementById("description").value = res.data.title;
+        const bookimg = document.querySelector(".book-image");
+        
         cover_image = res.data.coverImage;
       });
   }
@@ -69,7 +71,7 @@ function NewBook() {
       }
     }
     >
-      <div className="book-form">
+      <div className="book-form" style={{width: "45%", margin: "5%"}}>
       <h2 style={{textAlign: "center"}}>Add a Book</h2>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="isbn">
@@ -101,7 +103,7 @@ function NewBook() {
         </Form>
       </div>
 
-      <div className="book-image"></div>
+      <div className="book-image" style={{width: "45%", margin: "5%"}}></div>
     </div>
     </>
   );
