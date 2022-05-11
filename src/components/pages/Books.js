@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 
 import Navigation from '../Navigation';
-import '../styles/books.scss';
+import '../styles/grab.scss';
 
 function Books() {
   const [book, setBook] = useState([]);
