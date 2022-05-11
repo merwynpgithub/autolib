@@ -26,6 +26,7 @@ body {
   }
 }
 
+
 .book {
   display: flex;
   flex-direction: column;
@@ -50,6 +51,17 @@ body {
   }
 }
 
+
+.book-display {
+  margin-top: 3em;
+  #grab {
+    font-family: $font_header;
+    color: black;
+    text-align: center;
+    text-decoration: underline;
+  }
+}
+
 .books_home {
   display: flex;
   justify-content: space-around;
@@ -57,39 +69,9 @@ body {
 }
 
 .books_grab {
-  margin: 5% 10% 0 10%;
+  margin: 2% 10% 0 10%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-}
-
-.hero {
-  display: flex;
-  flex-direction: row;
-  .section_1 {
-    width: 40%;
-    margin: 10% 5%;
-    h1 {
-      color: black;
-      font: {
-        family: $font_header;
-      }
-    }
-    color: black;
-    p {
-      font: {
-        family: $font_paragraph;
-      }
-    }
-    img {
-      width: 50%;
-      height: 100px;
-      object-fit: cover;
-    }
-  }
-  .section_2 {
-    width: 60%;
-    margin: 5% 0 15% 0;
-  }
 }
