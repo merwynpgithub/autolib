@@ -1,4 +1,27 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'books.scss';
+$orange: #DD5400;
+
 .nav {
   color: blue;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  background-color: black;
+  .logo {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+  font: {
+    family: $font_paragraph;
+  }
+}
+
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:focus {
+  color: $orange;
 }

@@ -15,7 +15,6 @@ function Home() {
     return (
       <div className="book-list" key={book.id}>
         <img src={book.cover_image} alt={book.title} />
-        <p>{book.title}</p>
       </div>
     );
   });
@@ -23,9 +22,13 @@ function Home() {
   return (
     <>
     <Navigation />
-    <div className="container-fluid book-display" >
-      <p id="grab">Recently Added Books</p>
-      <div className="container-fluid books" >{bookList} </div>
+    <div className="hero" >
+      <div className='section_1'>
+        <h1>A NEW WAY TO READ</h1>
+        <p>Browse and request your favourite books in your neighbourhood. Pick them up at your convenience, and pass them on once you’re done reading. It’s that simple!</p>
+        <img src="/arrow.gif" />
+      </div>
+      <div className="container-fluid books_home section_2" >{bookList} </div>
     </div>
     </>
     

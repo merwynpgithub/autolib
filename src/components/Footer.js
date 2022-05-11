@@ -9,11 +9,13 @@ import './styles/footer.scss';
 function Footer() {
   const tooltip = "AutoLib is a way of sharing books among closely knit community members";
   return (
-    <footer className="fixed-bottom">
+    <footer>
       <Navbar bg="dark" variant="dark">
         <Container fluid>
           <Nav className="me-auto">
             <p className="footer-text" title={tooltip}>Contact Us</p>
+            <p className="footer-text">Privacy Policy</p>
+            <p className="footer-text">Terms of Use</p>
           </Nav>
 
           <Nav>

@@ -13,11 +13,9 @@ function Books() {
 
   const bookList = book.map(book => {
     return (
-      <div className="book-list" key={book.id}>
-        <img src={book.cover_image} alt={book.title} />
-        <p>
-          <a href={"/books/" + book.id}>{book.title}</a>
-        </p>
+      <div className="book" key={book.id}>
+        <a href={"/books/" + book.id}><img src={book.cover_image} alt={book.title} /></a>
+        <p className='title'>{book.title}</p>
       </div>
     );
   });
@@ -25,9 +23,9 @@ function Books() {
   return (
     <>
       <Navigation />
-      <div className="container-fluid book-display" >
-        <p id="grab">Grab a Book</p>
-        <div className="container-fluid books" >{bookList} </div>
+      <div className="book-display" >
+        <h1 id="grab">GRAB A BOOK</h1>
+        <div className="books_grab" >{bookList} </div>
       </div>
     </>
   );

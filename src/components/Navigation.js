@@ -15,14 +15,16 @@ function Navigation() {
   }
   return (
     <>
-    <Navbar bg="dark" variant="dark">
+    <Navbar className='navbar'>
         <Container fluid>
-          <Navbar.Brand href="/">AutoLib</Navbar.Brand>
-
-          <Nav className="me-auto">
-            <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/books">Grab A Book</Nav.Link>
-          </Nav>
+          <div className='sec_1'>
+            <img src="/logo.png" className='logo'/>
+            <Nav className="nav_links">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/about">About</Nav.Link>
+              <Nav.Link href="/books">Grab A Book</Nav.Link>
+            </Nav>
+          </div>
 
           <Nav>
             <Nav.Link href="/new">Add Book</Nav.Link>
