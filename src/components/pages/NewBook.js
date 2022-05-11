@@ -61,42 +61,47 @@ function NewBook() {
     <Navigation />
     <div style={
       {
-        width: "40%",
+        width: "90%",
         margin: "auto",
         minWidth: "350px",
-        marginTop: "3em"
+        marginTop: "3em",
+        display: "flex"
       }
     }
     >
+      <div className="book-form">
       <h2 style={{textAlign: "center"}}>Add a Book</h2>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="isbn">
-          <Form.Label>ISBN</Form.Label>
-          <Form.Control type="text" placeholder="Enter ISBN" onBlur={handleBlur}/>
-          <Form.Text className="text-muted"></Form.Text>
-        </Form.Group>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="isbn">
+            <Form.Label>ISBN</Form.Label>
+            <Form.Control type="text" placeholder="Enter ISBN" onBlur={handleBlur}/>
+            <Form.Text className="text-muted"></Form.Text>
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="title">
-          <Form.Label>Title</Form.Label>
-          <Form.Control type="text" placeholder="Enter Title" required/>
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="title">
+            <Form.Label>Title</Form.Label>
+            <Form.Control type="text" placeholder="Enter Title" required/>
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="author">
-          <Form.Label>Author</Form.Label>
-          <Form.Control type="text" placeholder="Enter Author"/>
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="author">
+            <Form.Label>Author</Form.Label>
+            <Form.Control type="text" placeholder="Enter Author"/>
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="description">
-          <Form.Label>Description</Form.Label>
-          <Form.Control as="textarea" rows={3} />
-        </Form.Group>
-        {notLogged && <Button variant="primary" type="submit" disabled>
-          Sign In to Submit
-        </Button>}
-        {!notLogged && <Button variant="primary" type="submit">
-          Submit
-        </Button>}
-      </Form>
+          <Form.Group className="mb-3" controlId="description">
+            <Form.Label>Description</Form.Label>
+            <Form.Control as="textarea" rows={3} />
+          </Form.Group>
+          {notLogged && <Button variant="primary" type="submit" disabled>
+            Sign In to Submit
+          </Button>}
+          {!notLogged && <Button variant="primary" type="submit">
+            Submit
+          </Button>}
+        </Form>
+      </div>
+
+      <div className="book-image"></div>
     </div>
     </>
   );
