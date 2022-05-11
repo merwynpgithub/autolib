@@ -18,7 +18,7 @@ function Navigation() {
     <Navbar className='navbar'>
         <Container fluid>
           <div className='sec_1'>
-            <img src="/logo.png" className='logo'/>
+            <img src="/logo.png" alt="autolib logo" className='logo'/>
             <Nav className="nav_links">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
