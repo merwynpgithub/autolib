@@ -90,6 +90,11 @@ function NewBook() {
             <Form.Control type="text" placeholder="Enter Author"/>
           </Form.Group>
 
+          <Form.Group className="mb-3" controlId="genres">
+            <Form.Label>Description</Form.Label>
+            <Form.Control type="text" placeholder="Enter Genre" required/>
+          </Form.Group>
+
           <Form.Group className="mb-3" controlId="description">
             <Form.Label>Description</Form.Label>
             <Form.Control as="textarea" rows={3} />
