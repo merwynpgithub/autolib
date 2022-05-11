@@ -91,7 +91,7 @@ function NewBook() {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="genres">
-            <Form.Label>Description</Form.Label>
+            <Form.Label>Genres</Form.Label>
             <Form.Control type="text" placeholder="Enter Genre" required/>
           </Form.Group>
 
