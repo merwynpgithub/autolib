@@ -67,6 +67,8 @@ body {
 .hero {
   display: flex;
   flex-direction: row;
+  width: 90%;
+  margin: auto;
   .section_1 {
     width: 40%;
     margin: 10% 5%;
@@ -91,5 +93,12 @@ body {
   .section_2 {
     width: 60%;
     margin: 5% 0 15% 0;
+    overflow-x: scroll;
+    .book-list {
+      margin-right: 1.5em;
+      img {
+        height: 350px;
+      }
+    }
   }
 }
