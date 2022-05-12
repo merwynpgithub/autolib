@@ -11,10 +11,11 @@ import '../styles/user.scss';
 function Request() {
   let navigate = useNavigate();
   const user = JSON.parse(localStorage.user);
+  const [requestData, setRequestData] = useState([]);
 
   useEffect(() => {
     axios.get("/api/requests/from_me_for_others")
-    .then(res => console.log(res.data));
+    .then(res => setRequestData(res.data));
   }, [])
   
   
@@ -25,8 +26,13 @@ function Request() {
     <div className="user-container" >
       <p className="user-header">{user.first_name} {user.last_name}</p>
       <div className="user-details">
-        <p><span className="name">First Name:</span> {user.first_name}</p>
-        <p><span className="name">Last Name:</span>  {user.last_name}</p>
+      <div>{requestData.map(data => {
+          return (
+           <p><span className="name">Requests sent:</span> {data.resource_id}</p>
+          );
+        })}
+      </div>
+        <div><span className="name">Requests received:</span>  {user.last_name}</div>
       </div>
       
       <div style={
