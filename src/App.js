@@ -9,6 +9,7 @@ import Book from './components/pages/Book';
 import NewBook from './components/pages/NewBook';
 import User from './components/pages/User';
 import Footer from './components/Footer';
+import Request from './components/pages/Request';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
           <Route path="/user" element={<User />}/>
+          <Route path="/request" element={<Request />}/>
         </Routes>
 
         <Footer />

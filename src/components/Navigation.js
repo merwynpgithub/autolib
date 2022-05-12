@@ -31,6 +31,7 @@ function Navigation() {
             {!islogged && <Nav.Link href="/login">Sign In</Nav.Link>}
             {islogged && localStorage.getItem("user")&& <DropdownButton id="dropdown-basic-button" title={JSON.parse(localStorage.user)["first_name"]}>
               <Dropdown.Item href="/user">Profile</Dropdown.Item>
+              <Dropdown.Item href="/request">Requests</Dropdown.Item>
               <Dropdown.Item href="/" onClick={handleClick}>Logout</Dropdown.Item>
             </DropdownButton>}
           </Nav>
