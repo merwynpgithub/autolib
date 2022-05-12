@@ -73,7 +73,7 @@ function Book() {
             bookDetails.genres
           }</p>
           <p>Status: {
-            JSON.stringify(bookDetails.status)
+            JSON.stringify(bookDetails.status.available)
           }</p>
           {
           bookDetails.status === "available" && localStorage.getItem("user") && <Form>
