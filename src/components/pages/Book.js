@@ -76,14 +76,14 @@ function Book() {
             JSON.stringify(bookDetails.status.available)
           }</p>
           {
-          bookDetails.status === "available" && localStorage.getItem("user") && <Form>
+          JSON.stringify(bookDetails.status.available) && localStorage.getItem("user") && <Form>
             <Button variant="primary" type="submit">
               Grab
             </Button>
           </Form>
         }
         {
-          bookDetails.status === "available" && notLogged && <Form>
+          JSON.stringify(bookDetails.status.available) && notLogged && <Form>
             <Button variant="primary" type="submit" disabled>
               Sign In to Grab
             </Button>
