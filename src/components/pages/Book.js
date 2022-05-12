@@ -60,7 +60,7 @@ function Book() {
         <p>{bookDetails.description}</p>
         <p>Authors: {bookDetails.authors}</p>
         <p>Genres: {bookDetails.genres}</p>
-        {JSON.stringify(bookStatus["available"]) && <p>Status: Available</p>}
+        <p>Status: {bookStatus["text"]}</p>
         </div>
 
       </div>
