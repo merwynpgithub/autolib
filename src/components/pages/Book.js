@@ -5,6 +5,7 @@ import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Navigation from '../Navigation';
+import '../styles/book.scss';
 
 function Book() {
   const [bookDetails, setBookDetails] = useState({});
@@ -55,7 +56,7 @@ function Book() {
         </div>
 
         <div style={{marginLeft: "2em", width: "60%"}}>
-        <p>{bookDetails.title}</p>
+        <p class="title">{bookDetails.title}</p>
         <p>ISBN: {bookDetails.isbn}</p>
         <p>{bookDetails.description}</p>
         <p>Authors: {bookDetails.authors}</p>

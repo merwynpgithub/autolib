@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=League+Spartan:wght@700&display=swap');
+$font_header: 'League Spartan', sans-serif;
+$font_paragraph: 'Inter', sans-serif;
+
+.title {
+  font: {
+    family: $font_header;
+    size: 1.5em;
+  }
+}
