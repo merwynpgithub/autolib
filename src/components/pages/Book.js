@@ -42,7 +42,7 @@ function Book() {
           justifyContent: "space-around"
         }
       }>
-        <div>
+        <div style={{width: "40%"}}>
           <img src={
               bookDetails.cover_image
             }
@@ -54,7 +54,7 @@ function Book() {
             }/>
         </div>
 
-        <div style={{marginLeft: "2em"}}>
+        <div style={{marginLeft: "2em", width: "60%"}}>
         <p>{bookDetails.title}</p>
         <p>ISBN: {bookDetails.isbn}</p>
         <p>{bookDetails.description}</p>
