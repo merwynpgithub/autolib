@@ -9,9 +9,12 @@ import Navigation from '../Navigation';
 function Book() {
   const [bookDetails, setBookDetails] = useState({});
 
-  //For Grab button
+  // For Grab button
   let notLogged = true;
-  if (localStorage.getItem("user")) notLogged = false;
+  if (localStorage.getItem("user")) 
+    notLogged = false;
+  
+
 
   const parameter = useParams();
   const bookId = Number(parameter.bookId);
@@ -26,7 +29,7 @@ function Book() {
 
   return (
     <>
-    <Navigation />
+      <Navigation/>
       <div style={
         {
           width: "75%",
@@ -49,47 +52,9 @@ function Book() {
             }/>
         </div>
 
-        <div style={
-          {marginLeft: "2em"}
-        }>
-          <p style={
-            {fontSize: "1.5em"}
-          }>
-            {
-            bookDetails.title
-          }</p>
-          <p style={
-            {fontSize: "1.2em"}
-          }>ISBN: {
-            bookDetails.isbn
-          }</p>
-          <p>{
-            bookDetails.description
-          }</p>
-          <p>Authors: {
-            bookDetails.authors
-          }</p>
-          <p>Genres: {
-            bookDetails.genres
-          }</p>
-          <p>Status: {
-            JSON.stringify(bookDetails.status.available)
-          }</p>
-          {
-          JSON.stringify(bookDetails.status.available) && localStorage.getItem("user") && <Form>
-            <Button variant="primary" type="submit">
-              Grab
-            </Button>
-          </Form>
-        }
-        {
-          JSON.stringify(bookDetails.status.available) && notLogged && <Form>
-            <Button variant="primary" type="submit" disabled>
-              Sign In to Grab
-            </Button>
-          </Form>
-        }
-         </div>
+        <div style={{marginLeft: "2em"}}>
+        <p>{bookDetails.title}</p>
+        </div>
 
       </div>
 
