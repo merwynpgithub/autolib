@@ -54,6 +54,10 @@ function Book() {
 
         <div style={{marginLeft: "2em"}}>
         <p>{bookDetails.title}</p>
+        <p>ISBN: {bookDetails.isbn}</p>
+        <p>{bookDetails.description}</p>
+        <p>Authors: {bookDetails.authors}</p>
+        <p>Genres: {bookDetails.genres}</p>
         </div>
 
       </div>
