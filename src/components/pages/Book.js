@@ -8,6 +8,7 @@ import Navigation from '../Navigation';
 
 function Book() {
   const [bookDetails, setBookDetails] = useState({});
+  const [bookStatus, setBookStatus] = useState("");
 
   // For Grab button
   let notLogged = true;
@@ -24,6 +25,7 @@ function Book() {
       const bookArray = res.data;
       const renderedBook = bookArray.filter(book => book.id === bookId);
       setBookDetails(renderedBook[0]);
+      setBookStatus(renderedBook[0]["status"]);
     });
   }, [])
 
@@ -58,7 +60,7 @@ function Book() {
         <p>{bookDetails.description}</p>
         <p>Authors: {bookDetails.authors}</p>
         <p>Genres: {bookDetails.genres}</p>
-        <p>Status: available</p>
+        {JSON.stringify(bookStatus["available"]) && <p>Status: Available</p>}
         </div>
 
       </div>
