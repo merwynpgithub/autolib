@@ -56,10 +56,10 @@ function Book() {
         </div>
 
         <div style={{marginLeft: "2em", width: "60%"}}>
-        <p class="title">{bookDetails.title}</p>
-        <p>ISBN: {bookDetails.isbn}</p>
+        <p id="title">{bookDetails.title}</p>
+        <p><span className="bold">ISBN:</span> {bookDetails.isbn}</p>
         <p>{bookDetails.description}</p>
-        <p>Authors: {bookDetails.authors}</p>
+        <p><span className="bold">Authors:</span> {bookDetails.authors}</p>
         <p>Genres: {bookDetails.genres}</p>
         <p>Status: {bookStatus["text"]}</p>
         {bookStatus["available"] && notLogged && 

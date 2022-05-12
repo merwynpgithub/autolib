@@ -2,9 +2,14 @@
 $font_header: 'League Spartan', sans-serif;
 $font_paragraph: 'Inter', sans-serif;
 
-.title {
+#title {
   font: {
     family: $font_header;
     size: 1.5em;
   }
+  text-decoration: underline;
+}
+
+.bold {
+  font-weight: bold;
 }
