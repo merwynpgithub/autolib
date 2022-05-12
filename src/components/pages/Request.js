@@ -28,7 +28,7 @@ function Request() {
       <div className="user-details">
       <div>{requestData.map(data => {
           return (
-           <p><span className="name">Requests sent:</span> {data.resource_id}</p>
+           <p key={Math.random()}><span className="name">Request:</span> {data.resource_id}</p>
           );
         })}
       </div>
