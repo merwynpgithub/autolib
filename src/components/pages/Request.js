@@ -28,7 +28,10 @@ function Request() {
       <div className="user-details">
       <div>{requestData.map(data => {
           return (
-           <p key={Math.random()}><span className="name">Request:</span> {data.resource_id}</p>
+            <div key={Math.random()}>
+              <p><span className="name">Book:</span> {data.resource_id}</p>
+              <p><span>Requested on:</span> {data.created_at.slice(0,10)}</p>
+            </div>
           );
         })}
       </div>
