@@ -12,11 +12,6 @@ function User() {
   let navigate = useNavigate();
   const user = JSON.parse(localStorage.user);
 
-  useEffect(() => {
-    axios.get("/api/requests/from_me_for_others")
-    .then(res => console.log(res.data));
-  }, [])
-  
   function handleSubmit(e) {
     e.preventDefault();
 
