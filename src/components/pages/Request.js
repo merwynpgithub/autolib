@@ -15,7 +15,15 @@ function Request() {
 
   useEffect(() => {
     axios.get("/api/requests/from_me_for_others")
-    .then(res => setRequestData(res.data));
+    .then(res => {
+      console.log("From me for others", res.data);
+      setRequestData(res.data);
+    });
+
+    axios.get("/api/requests/from_others_for_me/")
+    .then(res => {
+      console.log("From others for me",res.data);
+    })
   }, [])
   
   
