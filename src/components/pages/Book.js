@@ -56,7 +56,7 @@ function Book() {
         </div>
 
         <div style={{marginLeft: "2em", width: "60%"}}>
-        <p id="title">{bookDetails.title}</p>
+        <p id="title-name">{bookDetails.title}</p>
         <p><span className="bold">ISBN:</span> {bookDetails.isbn}</p>
         <p>{bookDetails.description}</p>
         <p><span className="bold">Authors:</span> {bookDetails.authors}</p>
