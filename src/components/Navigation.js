@@ -29,7 +29,7 @@ function Navigation() {
           <Nav>
             <Nav.Link href="/new">Add Book</Nav.Link>
             {!islogged && <Nav.Link href="/login">Sign In</Nav.Link>}
-            {islogged && <DropdownButton id="dropdown-basic-button" title={JSON.parse(localStorage.user)["first_name"]}>
+            {islogged && localStorage.getItem("user")&& <DropdownButton id="dropdown-basic-button" title={JSON.parse(localStorage.user)["first_name"]}>
               <Dropdown.Item href="/user">Profile</Dropdown.Item>
               <Dropdown.Item href="/" onClick={handleClick}>Logout</Dropdown.Item>
             </DropdownButton>}
