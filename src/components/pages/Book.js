@@ -60,8 +60,8 @@ function Book() {
         <p><span className="bold">ISBN:</span> {bookDetails.isbn}</p>
         <p>{bookDetails.description}</p>
         <p><span className="bold">Authors:</span> {bookDetails.authors}</p>
-        <p>Genres: {bookDetails.genres}</p>
-        <p>Status: {bookStatus["text"]}</p>
+        <p><span className="bold">Genres:</span> {bookDetails.genres}</p>
+        <p><span className="bold">Status:</span> {bookStatus["text"]}</p>
         {bookStatus["available"] && notLogged && 
         <Form>
           <Button variant="primary" type="submit" disabled>
