@@ -58,6 +58,7 @@ function Book() {
         <p>{bookDetails.description}</p>
         <p>Authors: {bookDetails.authors}</p>
         <p>Genres: {bookDetails.genres}</p>
+        <p>Status: available</p>
         </div>
 
       </div>
