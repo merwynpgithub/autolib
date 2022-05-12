@@ -61,6 +61,18 @@ function Book() {
         <p>Authors: {bookDetails.authors}</p>
         <p>Genres: {bookDetails.genres}</p>
         <p>Status: {bookStatus["text"]}</p>
+        {bookStatus["available"] && notLogged && 
+        <Form>
+          <Button variant="primary" type="submit" disabled>
+            Sign In to Grab
+          </Button>
+        </Form>}
+        {bookStatus["available"] && localStorage.getItem("user") && 
+        <Form>
+          <Button variant="primary" type="submit">
+            Grab
+          </Button>
+        </Form>}
         </div>
 
       </div>
