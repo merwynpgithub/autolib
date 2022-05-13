@@ -1,6 +1,7 @@
 .request-container {
   width: 85%;
   margin: auto;
+  margin-bottom: 3em;
 
   .request-header {
     text-align: center;
@@ -10,5 +11,8 @@
 
   table {
     width: 100%;
+    td, th {
+      width: 30%;
+    }
   }
 }

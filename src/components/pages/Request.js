@@ -12,6 +12,7 @@ function Request() {
   let navigate = useNavigate();
   const user = JSON.parse(localStorage.user);
   const [requestData, setRequestData] = useState([]);
+  const [requestRec, setRequestRec] = useState([]);
 
   useEffect(() => {
     axios.get("/api/requests/from_me_for_others")
@@ -23,6 +24,7 @@ function Request() {
     axios.get("/api/requests/from_others_for_me/")
     .then(res => {
       console.log("From others for me",res.data);
+      setRequestRec(res.data);
     })
   }, [])
   
@@ -32,31 +34,43 @@ function Request() {
     <>
     <Navigation />
     <div className="request-container" >
-        <p className="request-header">Requests Sent</p>
-        <table>
-          <tr>
-            <th>Book</th>
-            <th>Possessor</th>
-            <th>Date</th>
-          </tr>
+      <p className="request-header">Requests Sent</p>
+      <table>
+        <tr>
+          <th>Book</th>
+          <th>Possessor</th>
+          <th>Date</th>
+        </tr>
         {requestData.map(data => {
-          return (
-            <tr key={Math.random()}>
-              <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
-              <td>{data.requestee_first_name} {data.requestee_last_name}</td>
-              <td>{data.created_at.slice(0,10)}</td>
-            </tr>
-            );
-          })}
-        </table>
-        
-        
-        
-      
-      <div style={
-        {marginTop: "1em"}
-      }>
-      </div>
+        return (
+          <tr key={Math.random()}>
+            <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
+            <td>{data.requestee_first_name} {data.requestee_last_name}</td>
+            <td>{data.created_at.slice(0,10)}</td>
+          </tr>
+          );
+        })}
+      </table>
+    </div>
+
+    <div className="request-container" >
+      <p className="request-header">Requests Received</p>
+      <table>
+        <tr>
+          <th>Book</th>
+          <th>Requester</th>
+          <th>Date</th>
+        </tr>
+        {requestRec.map(data => {
+        return (
+          <tr key={Math.random()}>
+            <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
+            <td>{data.requester_first_name} {data.requester_last_name}</td>
+            <td>{data.created_at.slice(0,10)}</td>
+          </tr>
+          );
+        })}
+      </table>
     </div>
     </>
   );
