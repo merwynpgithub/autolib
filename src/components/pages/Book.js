@@ -12,6 +12,7 @@ import '../styles/book.scss';
 function Book() {
   let navigate = useNavigate();
   const [bookDetails, setBookDetails] = useState({});
+  const [status, setStatus] = useState({});
 
   // For Grab button
   let notLogged = true;
@@ -33,10 +34,13 @@ function Book() {
 
   }
   useEffect(() => {
-    axios.get("/api/resources").then(res => {
-      const bookArray = res.data;
-      const renderedBook = bookArray.filter(book => book.id === bookId);
-      setBookDetails(renderedBook[0]);
+    const url = "/api/resources/" + bookId;
+    axios.get(url).then(res => {
+      // const bookArray = res.data;
+      // const renderedBook = bookArray.filter(book => book.id === bookId);
+      setBookDetails(res.data);
+      setStatus(res.data.status)
+      console.log(res.data.status);
     });
   }, [])
 
@@ -98,17 +102,17 @@ function Book() {
           <p>
             <span className="bold">Status:</span>
             {
-            bookDetails.status
+            status.text
           }</p>
           {
-          bookDetails.status === "available" && notLogged && <Form>
+          status.text === "available" && notLogged && <Form>
             <Button variant="primary" type="submit" disabled>
               Sign In to Grab
             </Button>
           </Form>
         }
           {
-          bookDetails.status === "available" && localStorage.getItem("user") && <Form onSubmit={handleSubmit}>
+          status.text === "available" && localStorage.getItem("user") && <Form onSubmit={handleSubmit}>
             <Button variant="primary" type="submit">
               Grab
             </Button>
