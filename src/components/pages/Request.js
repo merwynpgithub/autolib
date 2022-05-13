@@ -6,7 +6,7 @@ import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Navigation from '../Navigation';
-import '../styles/user.scss';
+import '../styles/request.scss';
 
 function Request() {
   let navigate = useNavigate();
@@ -31,19 +31,19 @@ function Request() {
   return (
     <>
     <Navigation />
-    <div className="user-container" >
-      <p className="user-header">{user.first_name} {user.last_name}</p>
-      <div className="user-details">
-      <div>{requestData.map(data => {
+    <div className="request-container" >
+        <p className="request-header">Requests Sent</p>
+        <div className="request">{requestData.map(data => {
           return (
             <div key={Math.random()}>
-              <p><span className="name">Book:</span> {data.resource_id}</p>
+              <p><span className="">Book:</span> <a href={"/books/" + data.resource_id}>{data.resource_title}</a></p>
+              <p><span>Current Borrower:</span> {data.requestee_first_name} {data.requestee_last_name}</p>
               <p><span>Requested on:</span> {data.created_at.slice(0,10)}</p>
-            </div>
+          </div>
           );
         })}
-      </div>
-        <div><span className="name">Requests received:</span>  {user.last_name}</div>
+        
+        
       </div>
       
       <div style={
