@@ -26,7 +26,7 @@ function NewBook() {
         document.getElementById("author").value = res.data.authors;
         document.getElementById("description").value = res.data.title;
         const bookimg = document.querySelector(".book-image");
-        cover_image = res.data.coverImage;
+        cover_image = res.data.cover_image;
         bookimg.innerHTML = `<img src=${cover_image} alt=${res.data.title} />`;
       });
   }
