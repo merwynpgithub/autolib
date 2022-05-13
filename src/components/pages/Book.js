@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import {useParams} from 'react-router-dom';
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,6 +10,7 @@ import Navigation from '../Navigation';
 import '../styles/book.scss';
 
 function Book() {
+  let navigate = useNavigate();
   const [bookDetails, setBookDetails] = useState({});
 
   // For Grab button
@@ -16,7 +19,8 @@ function Book() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("works");
+    
+    navigate("/");
   }
   
 
