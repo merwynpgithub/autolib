@@ -13,6 +13,11 @@ function Book() {
   // For Grab button
   let notLogged = true;
   if (localStorage.getItem("user")) notLogged = false;
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log("works");
+  }
   
 
 
@@ -95,7 +100,7 @@ function Book() {
           </Form>
         }
           {
-          bookDetails.status === "available" && localStorage.getItem("user") && <Form>
+          bookDetails.status === "available" && localStorage.getItem("user") && <Form onSubmit={handleSubmit}>
             <Button variant="primary" type="submit">
               Grab
             </Button>
