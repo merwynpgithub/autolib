@@ -48,7 +48,7 @@ function Request() {
             <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
             <td>{data.requestee_first_name} {data.requestee_last_name}</td>
             <td>{data.created_at.slice(0,10)}</td>  
-            {data.completed_at ? <td>Completed</td> : <td>Open</td> }
+            {data.completed_at ? <td className="completed">Completed</td> : <td className="open">Open</td> }
           </tr>
           );
         })}
@@ -70,7 +70,7 @@ function Request() {
             <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
             <td>{data.requester_first_name} {data.requester_last_name}</td>
             <td>{data.created_at.slice(0,10)}</td>
-            {data.completed_at ? <td>Completed</td> : <td>Open</td> }
+            {data.completed_at ? <td className="completed">Completed</td> : <td className="open">Open</td> }
           </tr>
           );
         })}

@@ -14,5 +14,13 @@
     td, th {
       width: 25%;
     }
+    .completed {
+      color: green;
+      font-weight: bold;
+    }
+    .open {
+      color: red;
+      font-weight: bold;
+    }
   }
 }
