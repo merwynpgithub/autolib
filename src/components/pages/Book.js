@@ -17,17 +17,21 @@ function Book() {
   let notLogged = true;
   if (localStorage.getItem("user")) notLogged = false;
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    
-    navigate("/");
-  }
-  
-
-
   const parameter = useParams();
   const bookId = Number(parameter.bookId);
+  
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(bookId);
 
+    axios.post("/api/requests", { "resourceId": bookId })
+    .then(res => {
+      console.log("post api request", res);
+      navigate("/");
+    })
+    .catch(err => console.log(err));
+
+  }
   useEffect(() => {
     axios.get("/api/resources").then(res => {
       const bookArray = res.data;
