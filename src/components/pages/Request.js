@@ -33,18 +33,25 @@ function Request() {
     <Navigation />
     <div className="request-container" >
         <p className="request-header">Requests Sent</p>
-        <div className="request">{requestData.map(data => {
+        <table>
+          <tr>
+            <th>Book</th>
+            <th>Possessor</th>
+            <th>Date</th>
+          </tr>
+        {requestData.map(data => {
           return (
-            <div key={Math.random()}>
-              <p><span className="">Book:</span> <a href={"/books/" + data.resource_id}>{data.resource_title}</a></p>
-              <p><span>Current Borrower:</span> {data.requestee_first_name} {data.requestee_last_name}</p>
-              <p><span>Requested on:</span> {data.created_at.slice(0,10)}</p>
-          </div>
-          );
-        })}
+            <tr key={Math.random()}>
+              <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
+              <td>{data.requestee_first_name} {data.requestee_last_name}</td>
+              <td>{data.created_at.slice(0,10)}</td>
+            </tr>
+            );
+          })}
+        </table>
         
         
-      </div>
+        
       
       <div style={
         {marginTop: "1em"}
