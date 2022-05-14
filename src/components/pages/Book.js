@@ -44,6 +44,8 @@ function Book() {
     });
   }, [])
 
+  const defaultImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqlyVgjqhw65UtsRfTi-zafiSFb7zitbpQAjcrlqKZcCgBiDyWv4MV4CbgVcxFlXtf-8I&usqp=CAU";
+
   return (
     <>
       <Navigation/>
@@ -61,15 +63,14 @@ function Book() {
           {width: "40%"}
         }>
           <img src={
-              bookDetails.cover_image
+              bookDetails.cover_image || defaultImageUrl
             }
             alt={
               bookDetails.title
             }
             style={
               {height: "350px", 
-              backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqlyVgjqhw65UtsRfTi-zafiSFb7zitbpQAjcrlqKZcCgBiDyWv4MV4CbgVcxFlXtf-8I&usqp=CAU')",
-              backgroundRepeat: "no-repeat"}
+              }
             }/>
         </div>
 

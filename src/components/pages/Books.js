@@ -20,13 +20,16 @@ function Books() {
   }
 
   useEffect(() => {
+    
     axios.get("/api/resources").then(res => setBook(res.data));
   }, [])
-
+  
+  const defaultImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqlyVgjqhw65UtsRfTi-zafiSFb7zitbpQAjcrlqKZcCgBiDyWv4MV4CbgVcxFlXtf-8I&usqp=CAU";
+  
   const bookList = book.map(book => {
     return (
       <div className="book" key={book.id}>
-        <a href={"/books/" + book.id}><img src={book.cover_image} alt={book.title} /></a>
+        <a href={"/books/" + book.id}><img src={book.cover_image || defaultImageUrl} alt={book.title} /></a>
         <p className='title'>{book.title}</p>
       </div>
     );
