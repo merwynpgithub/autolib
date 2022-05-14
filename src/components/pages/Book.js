@@ -67,7 +67,9 @@ function Book() {
               bookDetails.title
             }
             style={
-              {height: "350px"}
+              {height: "350px", 
+              backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqlyVgjqhw65UtsRfTi-zafiSFb7zitbpQAjcrlqKZcCgBiDyWv4MV4CbgVcxFlXtf-8I&usqp=CAU')",
+              backgroundRepeat: "no-repeat"}
             }/>
         </div>
 
@@ -86,7 +88,7 @@ function Book() {
             {
             bookDetails.isbn
           }</p>
-          <p>{
+          <p style={{width: "90%", aspectRatio: "2/1", overflowY: "scroll"}}>{
             bookDetails.description
           }</p>
           <p>
