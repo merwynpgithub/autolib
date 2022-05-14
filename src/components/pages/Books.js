@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 
+import { Form, Button, FormControl } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Navigation from '../Navigation';
 import '../styles/grab.scss';
 
@@ -25,6 +28,17 @@ function Books() {
       <Navigation />
       <div className="book-display" >
         <h1 id="grab">GRAB A BOOK</h1>
+        <div className="search">
+        <Form className="d-flex">
+          <FormControl
+            type="search"
+            placeholder="Search"
+            className="me-2"
+            aria-label="Search"
+          />
+          <Button variant="outline-success">Search</Button>
+        </Form>
+        </div>
         <div className="books_grab" >{bookList} </div>
       </div>
     </>
