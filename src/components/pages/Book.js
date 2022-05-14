@@ -36,11 +36,14 @@ function Book() {
   useEffect(() => {
     const url = "/api/resources/" + bookId;
     axios.get(url).then(res => {
-      // const bookArray = res.data;
-      // const renderedBook = bookArray.filter(book => book.id === bookId);
       setBookDetails(res.data);
-      setStatus(res.data.status)
-      console.log(res.data.status);
+      setStatus(res.data.status);
+      if (res.data.description.length > 400) {
+        const descriptionPara = document.getElementById("description");
+        descriptionPara.style.width = "90%";
+        descriptionPara.style.aspectRatio = "2/1";
+        descriptionPara.style.overflowY = "scroll";
+      }
     });
   }, [])
 
@@ -89,7 +92,7 @@ function Book() {
             {
             bookDetails.isbn
           }</p>
-          <p style={{width: "90%", aspectRatio: "2/1", overflowY: "scroll"}}>{
+          <p id="description">{
             bookDetails.description
           }</p>
           <p>
