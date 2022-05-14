@@ -13,7 +13,8 @@ function Books() {
 
   function handleSearch(e) {
     e.preventDefault();
-    console.log("works");
+    setSearcValue(e.target.value);
+    console.log(searchValue);
   }
 
   useEffect(() => {
@@ -41,6 +42,7 @@ function Books() {
             placeholder="Search"
             className="me-2"
             aria-label="Search"
+            onChange={e => setSearcValue(e.target.value)}
           />
           <Button variant="outline-success" type="submit">Search</Button>
         </Form>
