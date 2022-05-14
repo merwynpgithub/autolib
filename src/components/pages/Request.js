@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { TiTick } from "react-icons/ti";
+
 import Navigation from '../Navigation';
 import '../styles/request.scss';
 
@@ -48,7 +50,13 @@ function Request() {
             <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
             <td>{data.requestee_first_name} {data.requestee_last_name}</td>
             <td>{data.created_at.slice(0,10)}</td>  
-            {data.completed_at ? <td className="completed">Completed</td> : <td className="open">Open</td> }
+            {data.completed_at ? <td className="completed">Completed</td> : 
+            <td className="open">
+              Open
+              <Form style={{display:"inline", marginLeft: "1em"}}>
+                <Button variant="secondary" type="submit"><TiTick /></Button>
+              </Form>
+            </td> }
           </tr>
           );
         })}
@@ -70,7 +78,13 @@ function Request() {
             <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
             <td>{data.requester_first_name} {data.requester_last_name}</td>
             <td>{data.created_at.slice(0,10)}</td>
-            {data.completed_at ? <td className="completed">Completed</td> : <td className="open">Open</td> }
+            {data.completed_at ? <td className="completed">Completed</td> : 
+            <td className="open">
+              Open
+              <Form style={{display:"inline", marginLeft: "1em"}}>
+                <Button variant="secondary" type="submit"><TiTick /></Button>
+              </Form>
+            </td> }
           </tr>
           );
         })}
