@@ -15,20 +15,41 @@ function Request() {
   const user = JSON.parse(localStorage.user);
   const [requestData, setRequestData] = useState([]);
   const [requestRec, setRequestRec] = useState([]);
+  const [openReq, setOpenReq] = useState([])
 
   useEffect(() => {
     axios.get("/api/requests/from_me_for_others")
     .then(res => {
-      console.log("From me for others", res.data);
       setRequestData(res.data);
     });
 
     axios.get("/api/requests/from_others_for_me/")
     .then(res => {
-      console.log("From others for me",res.data);
       setRequestRec(res.data);
     })
-  }, [])
+  }, [openReq])
+
+  function handleSubmit(e, id) {
+    e.preventDefault();
+    // console.log("works");
+    console.log(id);
+
+    const url = "/api/requests/" + id + "/complete";
+
+    //Put request to close the open grab request
+    axios.put(url, {id})
+    .then(res => {
+      console.log(res);
+      setOpenReq(prev => [...prev, res.data.id]);
+      navigate("/request");
+    })
+    .catch(err => console.log(err));
+  }
+
+  function handleOthersSubmit(e) {
+    e.preventDefault();
+    console.log("works");
+  }
   
   
 
@@ -53,7 +74,7 @@ function Request() {
             {data.completed_at ? <td className="completed">Completed</td> : 
             <td className="open">
               Open
-              <Form style={{display:"inline", marginLeft: "1em"}}>
+              <Form style={{display:"inline", marginLeft: "1em"}} onSubmit={(e) => handleSubmit(e, data.id)}>
                 <Button variant="secondary" type="submit"><TiTick /></Button>
               </Form>
             </td> }
@@ -81,7 +102,7 @@ function Request() {
             {data.completed_at ? <td className="completed">Completed</td> : 
             <td className="open">
               Open
-              <Form style={{display:"inline", marginLeft: "1em"}}>
+              <Form style={{display:"inline", marginLeft: "1em"}} onSubmit={(e) => handleSubmit(e, data.id)}>
                 <Button variant="secondary" type="submit"><TiTick /></Button>
               </Form>
             </td> }
