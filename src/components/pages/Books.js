@@ -13,7 +13,7 @@ function Books() {
 
   function handleSearch(e) {
     e.preventDefault();
-    const url = "/api/resources?title=" + searchValue;
+    const url = "/api/resources?find=" + searchValue;
 
     axios.get(url)
     .then(res => setBook(res.data));
