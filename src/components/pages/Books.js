@@ -13,8 +13,10 @@ function Books() {
 
   function handleSearch(e) {
     e.preventDefault();
-    setSearcValue(e.target.value);
-    console.log(searchValue);
+    const url = "/api/resources?title=" + searchValue;
+
+    axios.get(url)
+    .then(res => setBook(res.data));
   }
 
   useEffect(() => {
