@@ -33,47 +33,35 @@ function Book() {
   return (
     <>
       <Navigation/>
-      <div style={
-        {
-          width: "75%",
-          margin: "auto",
-          minWidth: "350px",
-          marginTop: "3em",
-          display: "flex",
-          justifyContent: "space-around"
-        }
-      }>
-        <div style={{width: "40%"}}>
-          <img src={
-              bookDetails.cover_image
-            }
-            alt={
-              bookDetails.title
-            }
-            style={
-              {height: "350px"}
-            }/>
+      <div className='book_wrapper'>
+        <div className='section_1'>
+          <img 
+            src={bookDetails.cover_image}
+            alt={bookDetails.title}
+          />
         </div>
 
-        <div style={{marginLeft: "2em", width: "60%"}}>
-        <p id="title">{bookDetails.title}</p>
-        <p><span className="bold">ISBN:</span> {bookDetails.isbn}</p>
-        <p>{bookDetails.description}</p>
-        <p><span className="bold">Authors:</span> {bookDetails.authors}</p>
-        <p><span className="bold">Genres:</span> {bookDetails.genres}</p>
-        <p><span className="bold">Status:</span> {bookStatus["text"]}</p>
-        {bookStatus["available"] && notLogged && 
-        <Form>
-          <Button variant="primary" type="submit" disabled>
-            Sign In to Grab
-          </Button>
-        </Form>}
-        {bookStatus["available"] && localStorage.getItem("user") && 
-        <Form>
-          <Button variant="primary" type="submit">
-            Grab
-          </Button>
-        </Form>}
+        <div className='section_2'>
+          <p id="title">{bookDetails.title}</p>
+          <p className='bold author'>by {bookDetails.authors}</p>
+          <br />
+          <p><span className="bold">GENREs:</span> {bookDetails.genres}</p>
+          <p><span className="bold">ISBN:</span> {bookDetails.isbn}</p>
+          <p><span className="bold">Status:</span> {bookStatus["text"]}</p>
+          <br />
+          <p>{bookDetails.description}</p>
+          {bookStatus["available"] && notLogged && 
+          <Form>
+            <Button variant="primary" type="submit" disabled>
+              Sign In to Grab
+            </Button>
+          </Form>}
+          {bookStatus["available"] && localStorage.getItem("user") && 
+          <Form>
+            <Button variant="primary" type="submit">
+              Grab
+            </Button>
+          </Form>}
         </div>
 
       </div>
