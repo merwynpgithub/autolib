@@ -52,6 +52,18 @@ function Books() {
         </Form>
         </div>
         <h1 id="grab">GRAB A BOOK</h1>
+        <div className="search">
+        <Form className="d-flex" onSubmit={handleSearch}>
+          <FormControl
+            type="search"
+            placeholder="Search"
+            className="me-2"
+            aria-label="Search"
+            onChange={e => setSearcValue(e.target.value)}
+          />
+          <Button variant="outline-success" type="submit">Search</Button>
+        </Form>
+        </div>
         <div className="books_grab" >{bookList} </div>
       </div>
     </>
