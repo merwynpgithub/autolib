@@ -87,7 +87,7 @@ function Book() {
             </Button>
           </Form>}
           {status.text === "available" && localStorage.getItem("user") && !hasBook &&
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Button className='button' type="submit">
               Get This Book
             </Button>
