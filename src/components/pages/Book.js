@@ -38,12 +38,7 @@ function Book() {
     axios.get(url).then(res => {
       setBookDetails(res.data);
       setStatus(res.data.status);
-      if (res.data.description.length > 400) {
-        const descriptionPara = document.getElementById("description");
-        descriptionPara.style.width = "90%";
-        descriptionPara.style.aspectRatio = "2/1";
-        descriptionPara.style.overflowY = "scroll";
-      }
+      
     });
   }, [])
 
