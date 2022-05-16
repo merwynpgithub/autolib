@@ -9,14 +9,16 @@ import '../styles/grab.scss';
 
 function Books() {
   const [book, setBook] = useState([]);
-  const [searchValue, setSearcValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   function handleSearch(e) {
     e.preventDefault();
     const url = "/api/resources?find=" + searchValue;
-
+    
     axios.get(url)
-    .then(res => setBook(res.data));
+    .then(res => {
+      setBook(res.data);
+    });
   }
 
   useEffect(() => {
@@ -46,24 +48,14 @@ function Books() {
             placeholder="Search"
             className="me-2"
             aria-label="Search"
-            onChange={e => setSearcValue(e.target.value)}
+            value={searchValue}
+            onChange={e => setSearchValue(e.target.value)}
           />
           <Button variant="outline-info" type="submit">Search</Button>
         </Form>
         </div>
         <h1 id="grab">GRAB A BOOK</h1>
-        <div className="search">
-        <Form className="d-flex" onSubmit={handleSearch}>
-          <FormControl
-            type="search"
-            placeholder="Search"
-            className="me-2"
-            aria-label="Search"
-            onChange={e => setSearcValue(e.target.value)}
-          />
-          <Button variant="outline-success" type="submit">Search</Button>
-        </Form>
-        </div>
+        
         <div className="books_grab" >{bookList} </div>
       </div>
     </>
