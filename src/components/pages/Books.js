@@ -1,20 +1,35 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 
+import { Form, Button, FormControl } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Navigation from '../Navigation';
 import '../styles/grab.scss';
 
 function Books() {
   const [book, setBook] = useState([]);
+  const [searchValue, setSearcValue] = useState("");
+
+  function handleSearch(e) {
+    e.preventDefault();
+    const url = "/api/resources?find=" + searchValue;
+
+    axios.get(url)
+    .then(res => setBook(res.data));
+  }
 
   useEffect(() => {
+    
     axios.get("/api/resources").then(res => setBook(res.data));
   }, [])
-
+  
+  const defaultImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqlyVgjqhw65UtsRfTi-zafiSFb7zitbpQAjcrlqKZcCgBiDyWv4MV4CbgVcxFlXtf-8I&usqp=CAU";
+  
   const bookList = book.map(book => {
     return (
       <div className="book" key={book.id}>
-        <a href={"/books/" + book.id}><img src={book.cover_image} alt={book.title} /></a>
+        <a href={"/books/" + book.id}><img src={book.cover_image || defaultImageUrl} alt={book.title} /></a>
         <p className='title'>{book.title}</p>
       </div>
     );
@@ -24,6 +39,18 @@ function Books() {
     <>
       <Navigation />
       <div className="book-display" >
+        <div className="search">
+        <Form className="d-flex" onSubmit={handleSearch}>
+          <FormControl
+            type="search"
+            placeholder="Search"
+            className="me-2"
+            aria-label="Search"
+            onChange={e => setSearcValue(e.target.value)}
+          />
+          <Button variant="outline-info" type="submit">Search</Button>
+        </Form>
+        </div>
         <h1 id="grab">GRAB A BOOK</h1>
         <div className="books_grab" >{bookList} </div>
       </div>

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=League+Spartan:wght@700&display=swap');
+$font_header: 'League Spartan', sans-serif;
+$font_paragraph: 'Inter', sans-serif;
+
+.request-container {
+  margin: 5%;
+  width: 85%;
+  margin-bottom: 3em;
+
+  .request-header {
+    font: {
+      family: $font_header;
+      size: 1.5rem;
+      // weight: bold;
+    }
+  }
+
+  table {
+    width: 100%;
+    tr {
+      background-color: rgb(194, 194, 194);
+    }
+    td, th {
+      width: 25%;
+      font: {
+        family: $font_paragraph;
+      }
+    }
+    .completed {
+      color: green;
+      font-weight: bold;
+    }
+    .open {
+      color: red;
+      font-weight: bold;
+    }
+  }
+}

@@ -27,12 +27,17 @@ function Navigation() {
           </div>
 
           <Nav>
-            <Nav.Link href="/new">Add Book</Nav.Link>
             {!islogged && <Nav.Link href="/login">Sign In</Nav.Link>}
-            {islogged && localStorage.getItem("user")&& <DropdownButton id="dropdown-basic-button" title={JSON.parse(localStorage.user)["first_name"]}>
-              <Dropdown.Item href="/user">Profile</Dropdown.Item>
-              <Dropdown.Item href="/" onClick={handleClick}>Logout</Dropdown.Item>
-            </DropdownButton>}
+            {islogged && localStorage.getItem("user") && 
+            <>
+              <Nav.Link href="/new">Add Book</Nav.Link>
+              <DropdownButton variant='info' id="dropdown-variants-Info" title={JSON.parse(localStorage.user)["first_name"]}>
+                <Dropdown.Item href="/user">Profile</Dropdown.Item>
+                <Dropdown.Item href="/request">Requests</Dropdown.Item>
+                <Dropdown.Item href="/" onClick={handleClick}>Logout</Dropdown.Item>
+              </DropdownButton>
+            </>
+            }
           </Nav>
         </Container>
 

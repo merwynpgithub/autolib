@@ -18,7 +18,7 @@ function Home() {
   const [book, setBook] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/resources").then(res => setBook(res.data));
+    axios.get("/api/resources?limit=5").then(res => setBook(res.data));
   }, [])
 
   const bookList = book.map(book => {

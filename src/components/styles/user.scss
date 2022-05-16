@@ -1,13 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=League+Spartan:wght@700&display=swap');
+$font_header: 'League Spartan', sans-serif;
+$font_paragraph: 'Inter', sans-serif;
+
+.header {
+  color: black;
+  font: {
+    family: $font_header;
+    size: 32px;
+  }
+}
+
+label, input, p {
+  color: black;
+  font: {
+    family: $font_paragraph;
+  }
+}
+
 .user-container {
-  width: 40%;
-  margin: auto;
   min-width: 350px;
-  margin-top: 3em;
+  margin: 5% 8%;
 
   .user-header {
     font-weight: bold;
     font-size: 1.5em;
-    text-align: center;
+  }
+
+  .wrapper {
+    width: 100%
   }
 
   .user-details {
@@ -19,4 +39,28 @@
       padding-right: 2em;
     }
   }
+
+  .form-input {
+    width: 40%;
+    margin-bottom: 2%;
+  }
+
+  .possessions {
+    margin-top: 8%;
+  }
+}
+
+.button {
+  margin-top: 3%;
+  width: 150px;
+  height: 40px;
+  border: 0;
+  background-color: #DD5400;
+  color: white;
+  font-weight: bold;
+
+}
+
+.button:hover {
+  background-color: #421900;
 }
