@@ -13,6 +13,7 @@ function Book() {
   let navigate = useNavigate();
   const [bookDetails, setBookDetails] = useState({});
   const [status, setStatus] = useState({});
+  const [hasBook, setHasBook] = useState(false);
 
   // For Grab button
   let notLogged = true;
@@ -31,13 +32,28 @@ function Book() {
       navigate("/");
     })
     .catch(err => console.log(err));
-
   }
   useEffect(() => {
+    //Load the single Book
     const url = "/api/resources/" + bookId;
     axios.get(url).then(res => {
       setBookDetails(res.data);
       setStatus(res.data.status);
+
+      //Check if user has that book
+      if (localStorage.getItem("user")) {
+        const user = JSON.parse(localStorage.user);
+
+        const url = "/api/resources?current_possessor_id=" + user.id;
+        axios.get(url).then(data => {
+          const booksPossessed = data.data;
+          const currentBook = res.data;
+          //Update if user has book
+          const doesHaveBook = booksPossessed.filter(book => book.id === currentBook.id);
+          doesHaveBook.length >= 1 ? setHasBook(true) : setHasBook(false);
+        })
+
+      }
       
     });
   }, [])
@@ -70,12 +86,13 @@ function Book() {
               Sign In to Grab
             </Button>
           </Form>}
-          {status.text === "available" && localStorage.getItem("user") && 
+          {status.text === "available" && localStorage.getItem("user") && !hasBook &&
           <Form>
             <Button className='button' type="submit">
               Get This Book
             </Button>
           </Form>}
+          {hasBook && <p className="in-possession">This Book is in your possession</p>}
         </div>
 
       </div>
