@@ -91,7 +91,7 @@ function Request() {
 
     <div className="request-container" >
       <p className="request-header">Requests Received</p>
-      {requestData.length > 0 && 
+      {requestRec.length > 0 && 
         <table>
           <tr>
             <th>Book</th>
@@ -117,7 +117,7 @@ function Request() {
           })}
         </table>
       }
-      {requestData.length === 0 && 
+      {requestRec.length === 0 && 
         <p>You have not received any book request.</p>
       }
     </div>
