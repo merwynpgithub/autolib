@@ -3,6 +3,7 @@ $font_header: 'League Spartan', sans-serif;
 $font_paragraph: 'Inter', sans-serif;
 
 .book_wrapper {
+  position: relative;
   min-width: 350px;
   margin: 5% 2%;
   display: flex;
@@ -15,6 +16,15 @@ $font_paragraph: 'Inter', sans-serif;
     justify-content: center;
     img {
       width: 55%;
+    }
+
+    .unavailable {
+      position: absolute;
+      top: 0;
+      color: red;
+      font-weight: bolder;
+      background-color: yellow;
+      font-size: 1.5em;
     }
   }
 
