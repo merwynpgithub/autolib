@@ -73,7 +73,7 @@ function Request() {
               <td className="open">
                 Open
                 <Form style={{display:"inline", marginLeft: "1em"}} onSubmit={(e) => handleSubmit(e, data.id)}>
-                  <Button variant="success" type="submit"><IoMdCheckmark /></Button>
+                  <Button variant="success" type="submit"><IoMdCheckmark title="Mark as Complete" /></Button>
                 </Form>
               </td> }
             </tr>
