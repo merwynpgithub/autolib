@@ -34,7 +34,7 @@ function Books() {
       <div className="book" key={book.id}>
         <a href={"/books/" + book.id}><img src={book.cover_image || defaultImageUrl} alt={book.title} /></a>
         <p className='title'>{book.title}</p>
-        {!book.status["available"] && <p className="unavailable">UNAVAILABLE</p>}
+        {/* {!book.status["available"] && <p className="unavailable">UNAVAILABLE</p>} */}
       </div>
     );
   });
