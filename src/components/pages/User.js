@@ -144,7 +144,7 @@ function User() {
                 <Form.Text className="text-muted"></Form.Text>
               </Form.Group>
 
-            <Button class="button" type="submit">
+            <Button className="button" type="submit">
               SAVE
             </Button>
           </Form>
@@ -153,6 +153,9 @@ function User() {
           </div>
           <div className='possessions'>
             <p className='header'>Books in your Possession</p>
+            {bookP.length === 0 && 
+              <p>You currently have no books in your possession</p>
+            }
             {booksPossessed}
           </div> 
         </div>

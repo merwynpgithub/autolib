@@ -22,7 +22,7 @@ function Navigation() {
             <Nav className="nav_links">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link href="/books">Grab A Book</Nav.Link>
+              <Nav.Link href="/books">Catalogue</Nav.Link>
             </Nav>
           </div>
 

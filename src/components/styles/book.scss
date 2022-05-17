@@ -35,6 +35,21 @@ $font_paragraph: 'Inter', sans-serif;
     .author {
       color: grey;
     }
+
+    .button {
+      margin-top: 3%;
+      width: 150px;
+      height: 40px;
+      border: 0;
+      background-color: #DD5400;
+      color: white;
+      font-weight: bold;
+    
+    }
+    
+    .button:hover {
+      background-color: #421900;
+    }
   }
 }
 
@@ -42,20 +57,7 @@ $font_paragraph: 'Inter', sans-serif;
   font-weight: bold;
 }
 
-.button {
-  margin-top: 3%;
-  width: 150px;
-  height: 40px;
-  border: 0;
-  background-color: #DD5400;
-  color: white;
-  font-weight: bold;
 
-}
-
-.button:hover {
-  background-color: #421900;
-}
 
 .in-possession {
   color: green;

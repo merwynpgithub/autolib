@@ -2,6 +2,7 @@
 $font_header: 'League Spartan', sans-serif;
 $font_paragraph: 'Inter', sans-serif;
 @import 'swiper/css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
 @mixin header {
   color: black;
@@ -10,6 +11,8 @@ $font_paragraph: 'Inter', sans-serif;
     size: 56px;
   }
 }
+
+
 
 html, body {
   height: 100%;
@@ -57,18 +60,48 @@ body {
 }
 
 .book-display {
-  margin-top: 3em;
   display: flex;
   flex-direction: column;
+  .head {
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #DD5400;
+  }
   .search {
-    align-self: flex-end;
     width: 40%;
     margin-right: 5%;
+    .button {
+      margin-top: 3%;
+      width: 150px;
+      height: 40px;
+      background-color: white;
+      color: #0dcaf0;
+      border: {
+        color: #0dcaf0;
+        width: 2px;
+      }
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .btn, .btn-primary {
+      border: {
+        color: #0dcaf0;
+        width: 2px;
+      }
+    }
+    
+    .button:hover {
+      background-color: #421900;
+    }
   }
   #grab {
     font-family: $font_header;
-    color: #DD5400;
-    margin-top: 5%;
+    color: white;
+    margin: 0 0 0 5%;
   }
 }
 
@@ -185,6 +218,56 @@ main {
           size: 32px;
         }
       }
+    }
+  }
+}
+
+
+
+.add-a-book {
+  margin: 0 5% 5% 5%;
+  display: flex;
+  flex-direction: row;
+  .book-form {
+    width: 45%;
+    h2 {
+      margin: 5% 0;
+      font: {
+        family: $font_header;
+        weight: bold;
+      }
+    }
+    label {
+      font: {
+        family: $font_paragraph;
+      }
+    }
+    .button {
+      margin-top: 3%;
+      width: 150px;
+      height: 40px;
+      border: 0;
+      background-color: #DD5400;
+      color: white;
+      font-weight: bold;
+    
+    }
+    
+    .button:hover {
+      background-color: #421900;
+    }
+  
+    .isbn-error {
+      color: rgb(202, 0, 0);
+    }
+  }
+
+  .book-image {
+    width: 45%;
+    margin: 5%;
+    img {
+      width: 70%;
+      height: auto;
     }
   }
 }

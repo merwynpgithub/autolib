@@ -27,7 +27,21 @@ label, input, p {
   }
 
   .wrapper {
-    width: 100%
+    width: 100%;
+    .button {
+      margin-top: 3%;
+      width: 150px;
+      height: 40px;
+      border: 0;
+      background-color: #DD5400;
+      color: white;
+      font-weight: bold;
+    
+    }
+    
+    .button:hover {
+      background-color: #421900;
+    }
   }
 
   .user-details {
@@ -50,17 +64,3 @@ label, input, p {
   }
 }
 
-.button {
-  margin-top: 3%;
-  width: 150px;
-  height: 40px;
-  border: 0;
-  background-color: #DD5400;
-  color: white;
-  font-weight: bold;
-
-}
-
-.button:hover {
-  background-color: #421900;
-}

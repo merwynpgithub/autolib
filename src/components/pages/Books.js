@@ -41,20 +41,22 @@ function Books() {
     <>
       <Navigation />
       <div className="book-display" >
-        <div className="search">
-        <Form className="d-flex" onSubmit={handleSearch}>
-          <FormControl
-            type="search"
-            placeholder="Search"
-            className="me-2"
-            aria-label="Search"
-            value={searchValue}
-            onChange={e => setSearchValue(e.target.value)}
-          />
-          <Button variant="outline-info" type="submit">Search</Button>
-        </Form>
+        <div className='head'>
+          <h1 id="grab">CATALOGUE</h1>
+          <div className="search">
+            <Form className="d-flex" onSubmit={handleSearch}>
+              <FormControl
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+                value={searchValue}
+                onChange={e => setSearchValue(e.target.value)}
+              />
+              <Button className='button' type="submit">Search</Button>
+            </Form>
+          </div>
         </div>
-        <h1 id="grab">GRAB A BOOK</h1>
         
         <div className="books_grab" >{bookList} </div>
       </div>
