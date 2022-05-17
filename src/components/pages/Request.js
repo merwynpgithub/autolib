@@ -106,12 +106,7 @@ function Request() {
               <td>{data.requester_first_name} {data.requester_last_name}</td>
               <td>{data.created_at.slice(0,10)}</td>
               {data.completed_at ? <td className="completed">Completed</td> : 
-              <td className="open">
-                Open
-                <Form style={{display:"inline", marginLeft: "1em"}} onSubmit={(e) => handleSubmit(e, data.id)}>
-                  <Button variant="secondary" type="submit"><TiTick /></Button>
-                </Form>
-              </td> }
+              <td className="open">Open</td>}
             </tr>
             );
           })}
