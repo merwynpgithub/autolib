@@ -31,9 +31,6 @@ function Request() {
 
   function handleSubmit(e, id) {
     e.preventDefault();
-    // console.log("works");
-    console.log(id);
-
     const url = "/api/requests/" + id + "/complete";
 
     //Put request to close the open grab request
