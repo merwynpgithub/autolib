@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { TiTick } from "react-icons/ti";
+import { IoMdCheckmark} from "react-icons/io";
 
 import Navigation from '../Navigation';
 import '../styles/request.scss';
@@ -73,7 +73,7 @@ function Request() {
               <td className="open">
                 Open
                 <Form style={{display:"inline", marginLeft: "1em"}} onSubmit={(e) => handleSubmit(e, data.id)}>
-                  <Button variant="secondary" type="submit"><TiTick /></Button>
+                  <Button variant="success" type="submit"><IoMdCheckmark /></Button>
                 </Form>
               </td> }
             </tr>
