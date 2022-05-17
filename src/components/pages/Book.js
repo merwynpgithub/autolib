@@ -69,7 +69,7 @@ function Book() {
             src={bookDetails.cover_image || defaultImageUrl}
             alt={bookDetails.title}
           />
-          <p className="unavailable">UNAVAILABLE</p>
+          {status.text !== "available" && <p className="unavailable">UNAVAILABLE</p>}
         </div>
 
         <div className='section_2'>
