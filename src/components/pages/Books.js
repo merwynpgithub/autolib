@@ -47,7 +47,7 @@ function Books() {
             <Form className="d-flex" onSubmit={handleSearch}>
               <FormControl
                 type="search"
-                placeholder="Search"
+                placeholder="Search Title, Author, Genre"
                 className="me-2"
                 aria-label="Search"
                 value={searchValue}
