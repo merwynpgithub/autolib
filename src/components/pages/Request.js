@@ -108,9 +108,6 @@ function Request() {
               {data.completed_at ? <td className="completed">Completed</td> : 
               <td className="open">
                 Open
-                <Form style={{display:"inline", marginLeft: "1em"}} onSubmit={(e) => handleSubmit(e, data.id)}>
-                  <Button variant="secondary" type="submit"><TiTick /></Button>
-                </Form>
               </td> }
             </tr>
             );
