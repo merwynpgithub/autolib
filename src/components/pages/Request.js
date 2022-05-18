@@ -50,16 +50,16 @@ function Request() {
     e.preventDefault();
     console.log(id);
 
-    const url = "/api/requests/" + id + "/complete";
+    const url = "/api/requests/" + id;
 
-    //Put request to close the open grab request
-    // axios.put(url, {id})
-    // .then(res => {
-    //   console.log(res);
-    //   setOpenReq(prev => [...prev, res.data.id]);
-    //   navigate("/request");
-    // })
-    // .catch(err => console.log(err));
+    //Delete request to undo the open grab request
+    axios.delete(url)
+    .then(res => {
+      console.log(res);
+      setOpenReq(prev => prev.pop());
+      navigate("/request");
+    })
+    .catch(err => console.log(err));
   }
 
   function handleOthersSubmit(e) {
