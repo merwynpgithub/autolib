@@ -62,13 +62,6 @@ function Request() {
     .catch(err => console.log(err));
   }
 
-  function handleOthersSubmit(e) {
-    e.preventDefault();
-    console.log("works");
-  }
-  
-  
-
   return (
     <>
     <Navigation />
