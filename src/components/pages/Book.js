@@ -93,6 +93,7 @@ function Book() {
             </Button>
           </Form>}
           {hasBook && <p className="in-possession">This Book is in your possession</p>}
+          {status.availableAt && <p className="in-possession">This book will be available on {status.availableAt.slice(0,10)}</p>}
         </div>
 
       </div>
