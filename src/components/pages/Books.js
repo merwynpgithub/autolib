@@ -31,7 +31,7 @@ function Books() {
   const bookList = book.map(book => {
     return (
       <div className="book" key={book.id}>
-        <a href={"/books/" + book.id}><img src={book.cover_image || defaultImageUrl} alt={book.title} /></a>
+        <a href={"/books/" + book.id}><img src={book.cover_image || defaultImageUrl} alt={book.title} loading="lazy" /></a>
         <p className='title'>{book.title}</p>
       </div>
     );
