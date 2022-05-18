@@ -29,7 +29,7 @@ function Book() {
     axios.post("/api/requests", { "resourceId": bookId })
     .then(res => {
       console.log("post api request", res);
-      navigate("/");
+      navigate("/request");
     })
     .catch(err => console.log(err));
   }
