@@ -6,6 +6,7 @@ import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { TiTick } from "react-icons/ti";
+import { TiTimes } from "react-icons/ti";
 
 import Navigation from '../Navigation';
 import '../styles/request.scss';
@@ -31,7 +32,6 @@ function Request() {
 
   function handleSubmit(e, id) {
     e.preventDefault();
-    // console.log("works");
     console.log(id);
 
     const url = "/api/requests/" + id + "/complete";
@@ -44,6 +44,22 @@ function Request() {
       navigate("/request");
     })
     .catch(err => console.log(err));
+  }
+
+  function handleClose(e, id) {
+    e.preventDefault();
+    console.log(id);
+
+    const url = "/api/requests/" + id + "/complete";
+
+    //Put request to close the open grab request
+    // axios.put(url, {id})
+    // .then(res => {
+    //   console.log(res);
+    //   setOpenReq(prev => [...prev, res.data.id]);
+    //   navigate("/request");
+    // })
+    // .catch(err => console.log(err));
   }
 
   function handleOthersSubmit(e) {
@@ -76,7 +92,10 @@ function Request() {
               <td className="open">
                 Open
                 <Form style={{display:"inline", marginLeft: "1em"}} onSubmit={(e) => handleSubmit(e, data.id)}>
-                  <Button variant="secondary" type="submit"><TiTick /></Button>
+                  <Button variant="success" type="submit"><TiTick /></Button>
+                </Form>
+                <Form style={{display:"inline", marginLeft: "1em"}} onSubmit={(e) => handleClose(e, data.id)}>
+                  <Button variant="danger" type="submit"><TiTimes /></Button>
                 </Form>
               </td> }
             </tr>
