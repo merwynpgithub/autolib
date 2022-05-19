@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,6 +6,7 @@ import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
+  const [err, setErr] = useState("")
   let navigate = useNavigate();
 
   function handleSubmit(e) {
@@ -20,7 +21,7 @@ function Login() {
      localStorage.setItem("islogged", true);
      localStorage.setItem("user", JSON.stringify(res.data));
       navigate("/");
-    });
+    }).catch(err => setErr("Invalid username/password. Please enter correct username or Register"));
   }
 
   return (
@@ -38,6 +39,7 @@ function Login() {
           fontSize: "1.5em"
         }
       }>Login</p>
+      {err && <p style={{color: "red", fontWeight: "bold"}}>{err}</p>}
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
