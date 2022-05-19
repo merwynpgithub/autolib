@@ -13,7 +13,6 @@ import '../styles/request.scss';
 
 function Request() {
   let navigate = useNavigate();
-  const user = JSON.parse(localStorage.user);
   const [requestData, setRequestData] = useState([]);
   const [requestRec, setRequestRec] = useState([]);
   const [openReq, setOpenReq] = useState([])
@@ -69,31 +68,33 @@ function Request() {
       <p className="request-header">Requests Sent</p>
       {requestData.length > 0 && 
         <table>
-          <tr>
-            <th>Book</th>
-            <th>Possessor</th>
-            <th>Date</th>
-            <th>Completed/Open</th>
-          </tr>
-          {requestData.map(data => {
-          return (
-            <tr key={Math.random()}>
-              <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
-              <td>{data.requestee_first_name} {data.requestee_last_name}</td>
-              <td>{data.created_at.slice(0,10)}</td>  
-              {data.completed_at ? <td className="completed">Completed</td> : 
-              <td className="open">
-                Open
-                <Form style={{display:"inline", marginLeft: "1em"}} onSubmit={(e) => handleSubmit(e, data.id)}>
-                  <Button variant="success" type="submit"><TiTick /></Button>
-                </Form>
-                <Form style={{display:"inline", marginLeft: "1em"}} onSubmit={(e) => handleClose(e, data.id)}>
-                  <Button variant="danger" type="submit"><TiTimes /></Button>
-                </Form>
-              </td> }
+          <tbody>
+            <tr>
+              <th>Book</th>
+              <th>Possessor</th>
+              <th>Date</th>
+              <th>Completed/Open</th>
             </tr>
-            );
-          })}
+            {requestData.map(data => {
+            return (
+              <tr key={Math.random()}>
+                <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
+                <td>{data.requestee_first_name} {data.requestee_last_name}</td>
+                <td>{data.created_at.slice(0,10)}</td>  
+                {data.completed_at ? <td className="completed">Completed</td> : 
+                <td className="open">
+                  Open
+                  <Form style={{display:"inline", marginLeft: "1em"}} onSubmit={(e) => handleSubmit(e, data.id)}>
+                    <Button variant="success" type="submit"><TiTick /></Button>
+                  </Form>
+                  <Form style={{display:"inline", marginLeft: "1em"}} onSubmit={(e) => handleClose(e, data.id)}>
+                    <Button variant="danger" type="submit"><TiTimes /></Button>
+                  </Form>
+                </td> }
+              </tr>
+              );
+            })}
+          </tbody>
         </table>
       }
       {requestData.length === 0 && 
@@ -105,25 +106,27 @@ function Request() {
       <p className="request-header">Requests Received</p>
       {requestRec.length > 0 && 
         <table>
-          <tr>
-            <th>Book</th>
-            <th>Requester</th>
-            <th>Date</th>
-            <th>Completed/Open</th>
-          </tr>
-          {requestRec.map(data => {
-          return (
-            <tr key={Math.random()}>
-              <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
-              <td>{data.requester_first_name} {data.requester_last_name}</td>
-              <td>{data.created_at.slice(0,10)}</td>
-              {data.completed_at ? <td className="completed">Completed</td> : 
-              <td className="open">
-                Open
-              </td> }
+          <tbody>
+            <tr>
+              <th>Book</th>
+              <th>Requester</th>
+              <th>Date</th>
+              <th>Completed/Open</th>
             </tr>
-            );
-          })}
+            {requestRec.map(data => {
+            return (
+              <tr key={Math.random()}>
+                <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
+                <td>{data.requester_first_name} {data.requester_last_name}</td>
+                <td>{data.created_at.slice(0,10)}</td>
+                {data.completed_at ? <td className="completed">Completed</td> : 
+                <td className="open">
+                  Open
+                </td> }
+              </tr>
+              );
+            })}
+          </tbody>            
         </table>
       }
       {requestRec.length === 0 && 
