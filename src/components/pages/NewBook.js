@@ -69,7 +69,8 @@ function NewBook() {
         document.getElementById("author").value = "";
         document.getElementById("description").value = "";
         
-        navigate("/")})
+        const newBookUrl = "/books/" + res.data.id;
+        navigate(newBookUrl)})
       .catch(err => console.log(err))
 
   }
