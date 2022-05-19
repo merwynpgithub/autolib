@@ -56,7 +56,7 @@ function Book() {
       }
       
     });
-  }, [])
+  }, [bookId])
 
   const defaultImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqlyVgjqhw65UtsRfTi-zafiSFb7zitbpQAjcrlqKZcCgBiDyWv4MV4CbgVcxFlXtf-8I&usqp=CAU";
 
