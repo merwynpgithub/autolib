@@ -54,7 +54,8 @@ function Book() {
           const doesHaveBook = booksPossessed.filter(book => book.id === currentBook.id);
           doesHaveBook.length >= 1 ? setHasBook(true) : setHasBook(false);
 
-          const urlSrc = addressConverter(res.data, localStorage.user);
+          //Show the book location in a map
+          const urlSrc = addressConverter(res.data);
           setMapUrl(urlSrc);
         })
 

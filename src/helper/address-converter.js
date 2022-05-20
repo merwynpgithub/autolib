@@ -1,4 +1,4 @@
-function addressConverter(currentBook, user) {
+function addressConverter(currentBook) {
 
   let street_address = currentBook.street_address;
   let zip_code = currentBook.zip_code;
