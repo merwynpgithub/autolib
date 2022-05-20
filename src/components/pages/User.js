@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Navigation from '../Navigation';
 import '../styles/user.scss';
+import BookThumb from './UserBookThumb';
 
 function User() {
   const user = JSON.parse(localStorage.user);
@@ -23,44 +24,22 @@ function User() {
     setProfile(newState);
   }
 
-  const onBlur = (e) => {
-    handleSubmit(e);
-  }
-
-  
-  function handleSubmit(e) {
-    e.preventDefault();
-    axios.put("/api/users", profile).then(res => { // Use Local storage to set new users
+  function updateDb(e) {
+    axios.put("/api/users", profile).then(res => {
+      // Use Local storage to set new users
       localStorage.setItem("user", JSON.stringify(profile));
-      //navigate("/");
     }).catch(err => console.log(err));
   }
-
-
 
   useEffect(() => {
     const url = "/api/resources?withStatus&current_possessor_id=" + user.id;
     axios.get(url).then(res => {
       setBookP(res.data);
-      console.log(res.data);
     })
   }, [user.id])
 
-  const booksPossessed = bookP.map(book => {
-
-    const availability = book.status?.availableAt
-      ? <span className='text-success'>expires {new Date(book.status?.availableAt).toLocaleDateString()}</span>
-      : <span className='text-warning'>expired/in library</span>
-
-    return (
-      <div className="book" key={book.id}>
-        <a href={"/books/" + book.id}><img src={book.cover_image || '/no-photo-available.png'} alt={book.title} loading="lazy" /></a>
-        <p className='title'>{book.title}</p>
-        <p>{availability}</p>
-      </div>
-    );
-  });
-
+  const booksPossessed = bookP.map(book => <BookThumb book={book} key={book.id}/>);
+  
   const getProvinceOptions = () => {
     const provinces = [
       'Alberta',
@@ -77,7 +56,7 @@ function User() {
       'Sasketchewan',
       'Yukon',
     ]
-    return provinces.map(p => <option value={p}>{p}</option>);
+    return provinces.map(p => <option key={p} value={p}>{p}</option>);
   };
 
   return (
@@ -90,7 +69,7 @@ function User() {
 
           <div style={{display: "flex", justifyContent: "space-between"}}>
             <div className="wrapper">
-            <Form onSubmit={handleSubmit}>
+            <Form>
             <div className="user-details">
               <Form.Group className="form-input" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
@@ -111,7 +90,7 @@ function User() {
                   value={user.phone}
                   name="phone"
                   onChange={updateProfileState}
-                  onBlur={onBlur}
+                  onBlur={updateDb}
                 />
                 <Form.Text className="text-muted"></Form.Text>
               </Form.Group>
@@ -126,7 +105,7 @@ function User() {
                   value={profile.street_address}
                   name="street_address"
                   onChange={updateProfileState}
-                  onBlur={onBlur}
+                  onBlur={updateDb}
                 />
                 <Form.Text className="text-muted"></Form.Text>
               </Form.Group>
@@ -138,7 +117,7 @@ function User() {
                   value={profile.city}
                   name="city"
                   onChange={updateProfileState}
-                  onBlur={onBlur}
+                  onBlur={updateDb}
               />
                 <Form.Text className="text-muted"></Form.Text>
               </Form.Group>
@@ -150,7 +129,7 @@ function User() {
                 <Form.Select aria-label="Province"
                   name="province"
                   onChange={updateProfileState}  
-                  onBlur={onBlur}
+                  onBlur={updateDb}
                   defaultValue={user.province}
                 >
                   <option>Please select your province</option>
@@ -166,7 +145,7 @@ function User() {
                   value={profile.zip_code}
                   name="zip_code"
                   onChange={updateProfileState}
-                  onBlur={onBlur}
+                  onBlur={updateDb}
                 />
                 <Form.Text className="text-muted"></Form.Text>
               </Form.Group>
