@@ -53,6 +53,17 @@ label, input, p {
       padding-right: 2em;
     }
   }
+  
+  .booklist-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .book {
+      margin: 30px 20px;
+    }
+  }
+
+
 
   .form-input {
     width: 40%;
