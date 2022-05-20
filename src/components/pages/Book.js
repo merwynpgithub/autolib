@@ -102,7 +102,7 @@ function Book() {
           {status.availableAt && <p className="in-possession">This book will be available on {status.availableAt.slice(0,10)}</p>}
         </div>
         <div>
-        {localStorage.getItem("user") && <div>
+        {localStorage.getItem("user") && !hasBook && <div>
           <p className="bold">Book Location:</p>
           <iframe style={{width: "300px", height: "300px"}} id="gmap_canvas" src={mapUrl}></iframe>
         </div>}
