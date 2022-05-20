@@ -87,7 +87,7 @@ function User() {
                 <Form.Label>Phone</Form.Label>
                 <Form.Control type="number"
                   placeholder="Please enter your phone number"
-                  value={user.phone}
+                  value={profile.phone}
                   name="phone"
                   onChange={updateProfileState}
                   onBlur={updateDb}
