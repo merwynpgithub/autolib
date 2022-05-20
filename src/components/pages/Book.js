@@ -8,12 +8,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Navigation from '../Navigation';
 import '../styles/book.scss';
+import addressConverter from '../../helper/address-converter';
 
 function Book() {
   let navigate = useNavigate();
   const [bookDetails, setBookDetails] = useState({});
   const [status, setStatus] = useState({});
   const [hasBook, setHasBook] = useState(false);
+  const [mapUrl, setMapUrl] = useState("");
 
   // For Grab button
   let notLogged = true;
@@ -51,6 +53,10 @@ function Book() {
           //Update if user has book
           const doesHaveBook = booksPossessed.filter(book => book.id === currentBook.id);
           doesHaveBook.length >= 1 ? setHasBook(true) : setHasBook(false);
+
+          //Show the book location in a map
+          const urlSrc = addressConverter(res.data);
+          setMapUrl(urlSrc);
         })
 
       }
@@ -94,6 +100,13 @@ function Book() {
           </Form>}
           {hasBook && <p className="in-possession">This Book is in your possession</p>}
           {status.availableAt && <p className="in-possession">This book will be available on {status.availableAt.slice(0,10)}</p>}
+        </div>
+        <div>
+        {localStorage.getItem("user") && !hasBook && <div>
+          <p className="bold">Book Location:</p>
+          <iframe style={{width: "300px", height: "300px"}} id="gmap_canvas" src={mapUrl}></iframe>
+        </div>}
+        
         </div>
 
       </div>
