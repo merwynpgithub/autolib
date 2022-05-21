@@ -19,7 +19,7 @@ function Login() {
       //Use Local storage to set and clear logged in users
      localStorage.setItem("islogged", true);
      localStorage.setItem("user", JSON.stringify(res.data));
-      navigate("/");
+      navigate("/books");
     }).catch(err => setErr("Invalid username/password. Please enter correct username or Register"));
   }
 
