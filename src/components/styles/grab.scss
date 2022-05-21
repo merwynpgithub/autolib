@@ -40,6 +40,7 @@ body {
     margin-top: 1rem;
     text-align: center;
   }
+  
   .unavailable {
     color: rgb(255, 255, 255);
     font-weight: bolder;
@@ -76,9 +77,20 @@ body {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
-
   }  
 
+  .requested-of-me {
+    color: rgb(231, 0, 0);
+    font-weight: bolder;
+    position: absolute;
+    top: 0;
+    font-size: 70%;
+    background-color: #fff200dd;
+    padding:5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+  }  
 
   .request:hover {
     background-color: #067800dd;
