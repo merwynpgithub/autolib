@@ -23,7 +23,7 @@ function Home() {
 
   const bookList = books.map(book => {
     return (
-      <SwiperSlide key={book.id}><img src={book.cover_image} alt={book.title}/></SwiperSlide>
+      <SwiperSlide key={book.id}><a href={`/books/`+book.id}><img src={book.cover_image} alt={book.title}/></a></SwiperSlide>
     );
   });
 
