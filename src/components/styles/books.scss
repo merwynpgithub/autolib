@@ -87,6 +87,13 @@ body {
       margin: 0;
     }
 
+    .filter {
+      width:500px;
+      .form-check-label {
+      color:white;
+      }
+    }
+
     .btn, .btn-primary {
       border: {
         color: #0dcaf0;
