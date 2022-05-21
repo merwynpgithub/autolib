@@ -51,6 +51,7 @@ function Books() {
   }
 
   const getRequestLink = book => {
+    if (!user) return;
     let s = '';
     if (book.status?.available && book.current_possessor_id!==user.id) {
       s = <p onClick={() => requestBook(book)}className="request">Request now</p>
@@ -59,6 +60,7 @@ function Books() {
   }
   
   const getAvailability = book => {
+    if (!user) return;
     let s = '';
     if (!book.status?.available) {
       if (book.current_possessor_id!==user.id) {
