@@ -41,12 +41,49 @@ body {
     text-align: center;
   }
   .unavailable {
-    color: red;
+    color: rgb(255, 255, 255);
     font-weight: bolder;
     position: absolute;
     top: 0;
-    background-color: yellow;
+    font-size: 70%;
+    background-color: #DD5400aa;
+    padding:5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
+
+  .request {
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    position: absolute;
+    top: 0;
+    font-size: 70%;
+    background-color: #067800aa;
+    padding:5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+  }  
+
+  .in-my-possession {
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    position: absolute;
+    top: 0;
+    font-size: 70%;
+    background-color: #0284c5aa;
+    padding:5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+
+  }  
+
+
+  .request:hover {
+    background-color: #067800dd;
+  }
+
 }
 
 .book-display {
