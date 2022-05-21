@@ -70,7 +70,12 @@ function Books() {
           s = <p className="unavailable">Available soon</p>;
         }
       } else {
-        s = <p className="in-my-possession">Yours until {new Date(book.status.availableAt).toLocaleDateString()}</p>;
+        if (book.status?.text!=="requested") {
+          console.log(book.title, book.status)
+          s = <p className="in-my-possession">Yours until {new Date(book.status.availableAt).toLocaleDateString()}</p>;  
+        } else {
+          s = <p className="requested-of-me">Requested of you</p>;  
+        }
       }
     } else {
       if (book.current_possessor_id===user.id) {
