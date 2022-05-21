@@ -22,7 +22,13 @@ function Register() {
       .then(res => {
         //Use Local storage to set new users
         localStorage.setItem("user", JSON.stringify(user));
-        navigate("/");
+        axios.post("/login", {email})
+        .then(res => {
+          //Use Local storage to set and clear logged in users
+        localStorage.setItem("islogged", true);
+        localStorage.setItem("user", JSON.stringify(res.data));
+          navigate("/");
+        })
       })
       .catch(err => console.log(err));
   }

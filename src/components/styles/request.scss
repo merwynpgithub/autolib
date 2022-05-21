@@ -17,7 +17,7 @@ $font_paragraph: 'Inter', sans-serif;
 
   table {
     width: 100%;
-    tr {
+    th {
       background-color: rgb(194, 194, 194);
     }
     td, th {
@@ -29,13 +29,15 @@ $font_paragraph: 'Inter', sans-serif;
     td:last-child, tr:last-child {
       width: 40%;
     }
+    tr {
+      border-bottom: solid 1px rgb(194, 194, 194);
+    }
     .completed {
       color: green;
       font-weight: bold;
     }
     .open {
-      color: red;
-      font-weight: bold;
+      color: #DD5400;
     }
   }
 }

@@ -13,12 +13,11 @@ $font_paragraph: 'Inter', sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    img {
-      width: 55%;
-    }
   }
 
   .section_2 {
+    display: flex;
+    flex-direction: column;
     width: 60%;
     padding-right: 5%;
     p {
@@ -49,6 +48,16 @@ $font_paragraph: 'Inter', sans-serif;
     
     .button:hover {
       background-color: #421900;
+    }
+
+    .inner {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .inner_2 {
+        margin-top: 5%;
+      }
     }
   }
 }

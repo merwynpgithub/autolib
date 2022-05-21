@@ -26,14 +26,10 @@ $orange: #DD5400;
   color: $orange;
 }
 
-// .navbar-nav {
-//   margin-right: 5%;
-//   // width: 18%;
+.dropdown-menu {
+  min-width: 0;
+}
 
-//   // .dropdown {
-//   //   margin-left: 5%;
-//   // }
-// }
 .open-requests {
   color: white;
   font-size: 0.8em;

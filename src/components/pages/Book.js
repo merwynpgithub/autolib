@@ -79,34 +79,38 @@ function Book() {
 
         <div className='section_2'>
           <p id="title">{bookDetails.title}</p>
-          <p className='bold author'>by {bookDetails.authors}</p>
-          <br />
-          <p><span className="bold">GENREs:</span> {bookDetails.genres}</p>
-          <p><span className="bold">ISBN:</span> {bookDetails.isbn}</p>
-          <p><span className="bold">Status:</span> {status.text}</p>
-          <br />
-          <p>{bookDetails.description}</p>
-          {status.text === "available" && notLogged && 
-          <Form>
-            <Button variant="primary" type="submit" disabled>
-              Sign In to Grab
-            </Button>
-          </Form>}
-          {status.text === "available" && localStorage.getItem("user") && !hasBook &&
-          <Form onSubmit={handleSubmit}>
-            <Button className='button' type="submit">
-              Get This Book
-            </Button>
-          </Form>}
-          {hasBook && <p className="in-possession">This Book is in your possession</p>}
-          {status.availableAt && <p className="in-possession">This book will be available on {status.availableAt.slice(0,10)}</p>}
-        </div>
-        <div>
-        {localStorage.getItem("user") && !hasBook && <div>
-          <p className="bold">Book Location:</p>
-          <iframe style={{width: "300px", height: "300px"}} id="gmap_canvas" src={mapUrl}></iframe>
-        </div>}
-        
+          <div className='inner'>
+            <div className='inner_1'>
+              <p className='bold author'>by {bookDetails.authors}</p>
+              <br />
+              <p><span className="bold">GENREs:</span> {bookDetails.genres}</p>
+              <p><span className="bold">ISBN:</span> {bookDetails.isbn}</p>
+              <p><span className="bold">Status:</span> {status.text}</p>
+              <br />
+              <p>{bookDetails.description}</p>
+              {hasBook && <p className="in-possession">This Book is in your possession</p>}
+              {status.availableAt && <p className="in-possession">This book will be available on {status.availableAt.slice(0,10)}</p>}
+            </div>
+            <div className='inner_2'>
+              {status.text === "available" && notLogged && 
+                <Form>
+                  <Button variant="primary" type="submit" disabled>
+                    Sign In to Request
+                  </Button>
+                </Form>}
+                {status.text === "available" && localStorage.getItem("user") && !hasBook &&
+                <Form onSubmit={handleSubmit}>
+                  <Button className='button' type="submit">
+                    Get This Book
+                  </Button>
+                </Form>}
+            </div>
+          </div>
+          {localStorage.getItem("user") && !hasBook && <div>
+            <p className="bold">Book Location:</p>
+            <br />
+            <iframe style={{width: "100%", height: "300px"}} id="gmap_canvas" src={mapUrl}></iframe>
+          </div>}
         </div>
 
       </div>

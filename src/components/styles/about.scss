@@ -2,8 +2,50 @@
 $font_header: 'League Spartan', sans-serif;
 $font_paragraph: 'Inter', sans-serif;
 
-#grab {
-  font-family: $font_header;
-  color: #DD5400;
-  text-align: center;
+.about-main {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  .about-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DD5400;
+    width: 100%;
+    margin: 0;
+    h1 {
+      color: white;
+      margin: 1%;
+      font: {
+        family: $font_header;
+        size: 3rem;
+      }
+    }
+  }
+  .about {
+    margin: 5% 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    div{
+      width: 50%;
+      padding: 0 2%;
+    }
+    h2 {
+      font: {
+        family: $font_header;
+        size: 2rem;
+      }
+    }
+    p {
+      color: black;
+      font: {
+        family: $font_paragraph;
+      }
+    }
+    .lhl {
+      width: 500px;
+    }
+  }
 }

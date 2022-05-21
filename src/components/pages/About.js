@@ -7,19 +7,30 @@ function About() {
   return (
     <>
     <Navigation />
-    <div style={
-      {
-        width: "75%",
-        margin: "auto",
-        minWidth: "350px",
-        marginTop: "3em"
-      }
-    }>
-      <h1 id="grab">ABOUT AUTOLIB</h1>
-      <p>AutoLib is a local community library founded with the purpose of serving local community members in an automated way without relying on a storage space and a central library building. </p>
-      <p>AutoLib aims at combining the concept of peer to peer sharing with a traditional functionality of a library.</p>
-
-    </div>
+    <main className='about-main'>
+      <div className='about-header'>
+        <h1>ABOUT US</h1>
+      </div>
+      <div className='about'>
+        <div>
+          <h2>About AutoLib</h2>
+          <p>AutoLib is a local community library founded with the purpose of serving local community members in an automated way without relying on a storage space and a central library building. The app aims to combine the concept of peer to peer sharing with the traditional functionality of a library.</p>
+          <p>AutoLib was created using Postgresql for the database, Express JS as the backend framework, React JS for the frontend, and Node.js as the runtime.</p>
+        </div>
+        <div>
+          <img src="/bookshelf.png" alt="AutoLib bookshelf" className='bookshelf'/>
+        </div>
+      </div>
+      <div className='about'>
+        <div>
+          <img src="/LHL_photo.jpg" alt="AutoLib Lighthouse Labs" className='lhl'/>
+        </div>
+        <div>
+          <h2>About The Creators</h2>
+          <p>Merwyn, Johannes and Chérie are web developers residing in Vancouver, BC and St. John's, NL, and are soon to be graduants from Lighthouse Labs - Canada's leading coding bootcamp. They decided to work together to create AutoLib as their final project. </p>
+        </div>
+      </div>
+    </main>
     </>
   );
 }
