@@ -38,7 +38,7 @@ function Navigation() {
           </div>
 
           <Nav>
-            {!islogged && <Nav.Link href="/login">Sign In</Nav.Link>}
+            {!islogged && <Nav.Link href="/login">Sign In/Sign Up</Nav.Link>}
             {islogged && localStorage.getItem("user") && 
             <>
               <Nav.Link href="/new">Add Book</Nav.Link>

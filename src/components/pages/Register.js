@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 
 import {Form, Button} from 'react-bootstrap';
@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 function Register() {
+  const [err, setErr] = useState("");
   let navigate = useNavigate();
   
   function handleSubmit(e) {
@@ -30,7 +31,7 @@ function Register() {
           navigate("/");
         })
       })
-      .catch(err => console.log(err));
+      .catch(err => setErr("Please Register and fill required fields"));
   }
 
   return (
@@ -48,22 +49,23 @@ function Register() {
           fontSize: "1.5em"
         }
       }>Sign Up</p>
+      {err && <p style={{color: "red", fontWeight: "bold"}}>{err}</p>}
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="firstName">
           <Form.Label>First Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter first name"/>
+          <Form.Control type="text" placeholder="Enter first name" required/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="lastName">
           <Form.Label>Last Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter last name"/>
+          <Form.Control type="text" placeholder="Enter last name" required/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email"/>
+          <Form.Control type="email" placeholder="Enter email" required/>
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 

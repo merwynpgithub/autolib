@@ -20,10 +20,16 @@ function Books() {
       setBook(res.data);
     });
   }
-
+  
   useEffect(() => {
     
-    axios.get("/api/resources").then(res => setBook(res.data));
+    axios.get("/api/resources?withStatus").then(res => {
+      const bookCheck = res.data.map(book => {
+        if (book.status.available) return {...book, canGrab: true };
+        else return {...book, canGrab: false };
+      });
+      setBook(bookCheck);
+    });
   }, [])
   
   const defaultImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqlyVgjqhw65UtsRfTi-zafiSFb7zitbpQAjcrlqKZcCgBiDyWv4MV4CbgVcxFlXtf-8I&usqp=CAU";
@@ -33,6 +39,7 @@ function Books() {
       <div className="book" key={book.id}>
         <a href={"/books/" + book.id}><img src={book.cover_image || defaultImageUrl} alt={book.title} loading="lazy" /></a>
         <p className='title'>{book.title}</p>
+        {book.canGrab === false && <p className="unavailable">UNAVAILABLE</p>}
       </div>
     );
   });
