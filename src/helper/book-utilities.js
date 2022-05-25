@@ -21,7 +21,7 @@ const getAvailability = (book, user) => {
     }
   } else {
     if (book.current_possessor_id===user.id) {
-      s = getElem("in-my-possession", `You have this book`);
+      s = getElem("in-my-possession", `In your Possession / Expired`);        
     } else {
       s = getElem("available", `Available`);
     }
