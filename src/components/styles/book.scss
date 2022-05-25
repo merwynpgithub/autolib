@@ -13,6 +13,10 @@ $font_paragraph: 'Inter', sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: center;
+
+    img {
+      box-shadow: 5px 5px 5px rgba(101, 101, 101, 0.274);
+    }
   }
 
   .section_2 {
