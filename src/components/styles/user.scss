@@ -60,6 +60,67 @@ label, input, p {
 
     .book {
       margin: 30px 20px;
+
+
+      .available-to-library {
+        color: rgb(255, 255, 255);
+        position: absolute;
+        top: 0;
+        font-size: 70%;
+        background-color: #4600dd82;
+        padding:5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+ 
+      .unavailable {
+        color: rgb(255, 255, 255);
+        position: absolute;
+        top: 0;
+        font-size: 70%;
+        background-color: #DD5400aa;
+        padding:5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    
+      .request {
+        color: rgb(255, 255, 255);
+        position: absolute;
+        top: 0;
+        font-size: 70%;
+        background-color: #067800aa;
+        padding:5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        cursor: pointer;
+      }  
+    
+      .in-my-possession {
+        color: rgb(255, 255, 255);
+        position: absolute;
+        top: 0;
+        font-size: 70%;
+        background-color: #0284c5aa;
+        padding:5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        cursor: pointer;
+      }  
+    
+      .requested-of-me {
+        color: rgb(231, 0, 0);
+        position: absolute;
+        top: 0;
+        font-size: 70%;
+        background-color: #fff200dd;
+        padding:5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        cursor: pointer;
+      }  
+    
+
     }
   }
 
