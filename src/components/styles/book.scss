@@ -17,6 +17,8 @@ $font_paragraph: 'Inter', sans-serif;
     img {
       box-shadow: 5px 5px 5px rgba(101, 101, 101, 0.274);
     }
+
+    
   }
 
   .section_2 {
@@ -63,6 +65,51 @@ $font_paragraph: 'Inter', sans-serif;
         margin-top: 5%;
       }
     }
+
+    .status-info {
+      margin:20px 0px;
+    }
+
+    .available {
+      color: rgb(255, 255, 255);
+      font-size: 100%;
+      background-color: #009a24aa;
+      padding:5px;
+      border-radius: 5px;
+    }
+
+    .unavailable {
+      color: rgb(255, 255, 255);
+      font-size: 100%;
+      background-color: #DD5400aa;
+      padding:5px;
+      border-radius: 5px;
+    }
+
+    .request {
+      color: rgb(255, 255, 255);
+      font-size: 100%;
+      background-color: #067800aa;
+      padding:5px;
+      border-radius: 5px;
+    }  
+
+    .in-my-possession {
+      color: rgb(255, 255, 255);
+      font-size: 100%;
+      background-color: #0284c5aa;
+      padding:5px;
+      border-radius: 5px;
+    }  
+
+    .requested-of-me {
+      color: rgb(231, 0, 0);
+      font-size: 100%;
+      background-color: #fff200dd;
+      padding:5px;
+      border-radius: 5px;
+    }  
+
   }
 }
 
