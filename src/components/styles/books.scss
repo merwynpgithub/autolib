@@ -180,6 +180,12 @@ body {
   display: none;
 }
 
+.swiper {
+  img {
+    box-shadow: 3px 3px 3px rgba(101, 101, 101, 0.1);
+  }
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -276,6 +282,7 @@ main {
     img {
       width: 70%;
       height: auto;
+      box-shadow: 5px 5px 5px rgba(101, 101, 101, 0.124);  
     }
   }
 }
