@@ -2,7 +2,7 @@ const getElem = (className, text) => <span className={className} dangerouslySetI
 
 
 const getAvailability = (book, user) => {
-  console.log(book.current_possessor_id, user.id);
+  // console.log(book.current_possessor_id, user.id);
   if (!user) return;
   let s = '';
   if (!book.status?.available) {
