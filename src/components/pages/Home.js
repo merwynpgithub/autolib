@@ -11,8 +11,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/effect-cards";
 
-import { EffectCards } from "swiper";
-
+import { EffectCards, Autoplay } from "swiper";
 
 function Home() {
   const [books, setBooks] = useState([]);
@@ -40,7 +39,9 @@ function Home() {
       </div>
       <Swiper
           effect={"cards"}
-          modules={[EffectCards]}
+          modules={[EffectCards, Autoplay]}
+          autoplay={ { delay: 5000 } }
+          
           className="mySwiper section_2"
         >{bookList}
         </Swiper>
