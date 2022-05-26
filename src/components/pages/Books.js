@@ -66,7 +66,7 @@ function Books() {
       <div className="book" key={book.id}>
         <a href={"/books/" + book.id}><img src={book.cover_image || defaultImageUrl} alt={book.title} loading="lazy" /></a>
         <p className='title'>{book.title}</p>
-        {getAvailability(book, user)}
+        {getAvailability(book, user, true)}
         {getRequestLink(book)}
       </div>
     );

@@ -1,8 +1,7 @@
 const getElem = (className, text) => <span className={className} dangerouslySetInnerHTML={{ __html: text }}></span>;
 
 
-const getAvailability = (book, user) => {
-  // console.log(book.current_possessor_id, user.id);
+const getAvailability = (book, user, hideAvail = false) => {
   if (!user) return;
   let s = '';
   if (!book.status?.available) {
@@ -23,7 +22,7 @@ const getAvailability = (book, user) => {
     if (book.current_possessor_id===user.id) {
       s = getElem("in-my-possession", `In your Possession / Expired`);        
     } else {
-      s = getElem("available", `Available`);
+      if (!hideAvail) getElem("available", `Available`);
     }
   }
   return s;
