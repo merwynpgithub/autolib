@@ -7,7 +7,7 @@ import './styles/nav.scss';
 import axios from 'axios';
 
 function Navigation() {
-  const [islogged, setLogged] = useState(localStorage.islogged);
+  const [islogged, setLogged] = useState(localStorage.islogged || false);
   const [receivedRequests, setReceivedRequests] = useState("");
 
   if (localStorage.getItem("user")) {
