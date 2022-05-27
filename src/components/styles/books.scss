@@ -291,3 +291,80 @@ main {
     }
   }
 }
+
+
+
+
+@media only screen and (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    .section_1 {
+      width: 80%;
+      margin: auto;
+      .header {
+        font-size: 35px;
+      }
+  }
+  .section_2 {
+    width: 80%;
+    margin: auto;
+    img {
+      height: 300px;
+    }
+  }
+  }
+  main {
+    .header {
+      font-size: 32px;
+    }
+    .wrapper {
+      .white_back {
+        height: 150px;
+        width: 150px;
+        img {
+          width: 120px;
+          height: 120px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .hero {
+    .section_1 {
+      .header {
+        font-size: 25px;
+      }
+  }
+  }
+  .section_2 {
+    img {
+      height: 200px;
+    }
+  }
+
+  main {
+    .header {
+      font-size: 24px;
+    }
+    .wrapper {
+      flex-direction: column;
+      .container{
+        width: 75%;
+        .white_back {
+          height: 100px;
+          width: 100px;
+          img {
+            width: 100px;
+            height: 100px;
+          }
+        }
+        .subheader {
+          font-size: 20px;
+        }
+      }
+      
+    }
+  }
+}
