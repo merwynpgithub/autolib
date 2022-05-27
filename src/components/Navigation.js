@@ -26,7 +26,7 @@ function Navigation() {
   }
   return (
     <>
-    <Navbar className='navbar'>
+    <Navbar className='navbar' expand="lg">
         <Container fluid>
           <div className='sec_1'>
             <img src="/logo.png" alt="autolib logo" className='logo'/>

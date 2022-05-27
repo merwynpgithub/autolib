@@ -10,7 +10,7 @@ function Footer() {
   const tooltip = "AutoLib is a way of sharing books among closely knit community members";
   return (
     <footer>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
           <Nav className="me-auto">
             <p className="footer-text" title={tooltip}>Contact Us</p>
