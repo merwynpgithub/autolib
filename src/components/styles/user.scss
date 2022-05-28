@@ -47,6 +47,10 @@ label, input, p {
   .user-details {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    .form-input {
+      min-width: 300px;
+    }
 
     .name {
       color: gray;
