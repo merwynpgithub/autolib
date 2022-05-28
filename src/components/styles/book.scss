@@ -124,3 +124,36 @@ $font_paragraph: 'Inter', sans-serif;
   font-weight: bold;
   padding-top: 2em;
 }
+
+@media only screen and (max-width: 1100px) {
+  .section_1 {
+    img {
+      width: 300px;
+      max-height: 350px;
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .book_wrapper {
+    flex-direction: column;
+    .section_1 {
+      width: 85%;
+      margin: auto;
+      img {
+        width: 170px;
+        max-height: 200px;
+      }
+    }
+    .section_2 {
+      width: 80%;
+      margin: 10% auto;
+      #title {
+        font-size: 2em;
+      }
+      .inner {
+        flex-direction: column;
+      }
+    }
+  }
+}
