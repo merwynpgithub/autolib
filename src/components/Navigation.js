@@ -6,10 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/nav.scss';
 import axios from 'axios';
 
-function Navigation() {
-  const [islogged, setLogged] = useState(localStorage.islogged);
+function Navigation({appData}) {
   const [receivedRequests, setReceivedRequests] = useState("");
-
   if (localStorage.getItem("user")) {
     axios.get("/api/requests/from_others_for_me")
     .then(res => {
@@ -38,17 +36,17 @@ function Navigation() {
           </div>
 
           <Nav>
-            {!islogged && <Nav.Link href="/register">Sign Up</Nav.Link>}
-            {!islogged && <Nav.Link href="/login">Sign In</Nav.Link>}
-            {islogged && localStorage.getItem("user") && 
+            {!appData?.isLoggedIn && <Nav.Link href="/register">Sign Up</Nav.Link>}
+            {!appData?.isLoggedIn && <Nav.Link href="/login">Sign In</Nav.Link>}
+            {appData?.isLoggedIn && 
             <>
               <Nav.Link href="/new">Add Book</Nav.Link>
-              <DropdownButton variant='info' id="dropdown-variants-Info" title={JSON.parse(localStorage.user)["first_name"]}>
+              <DropdownButton variant='info' id="dropdown-variants-Info" title={appData.state.user.first_name}>
                 <Dropdown.Item href="/user">Profile</Dropdown.Item>
                 <Dropdown.Item href="/request">Requests 
                 {receivedRequests && <span className="open-requests">{receivedRequests}</span>} 
                 </Dropdown.Item>
-                <Dropdown.Item href="/" onClick={handleClick}>Logout</Dropdown.Item>
+                <Dropdown.Item href="/" onClick={appData.logout}>Logout</Dropdown.Item>
               </DropdownButton>
             </>
             }
