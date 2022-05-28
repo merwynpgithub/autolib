@@ -1,26 +1,19 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Login() {
+function Login({appData}) {
   const [err, setErr] = useState("")
   let navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
     const email = document.getElementById("formBasicEmail").value;
-    const loginData = { email };
-
-    axios.post("/login", loginData)
-    .then(res => {
-      //Use Local storage to set and clear logged in users
-     localStorage.setItem("islogged", true);
-     localStorage.setItem("user", JSON.stringify(res.data));
-      navigate("/books");
-    }).catch(err => setErr("Invalid username/password. Please enter correct username or Register"));
+    appData.login({email})
+      .then(() => navigate("/books"))
+      .catch(err => setErr("Invalid username/password. Please enter correct username or register."));
   }
 
   return (
