@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from '../Navigation';
 import '../styles/grab.scss';
 
-function Books() {
+function Books({appData}) {
   const [book, setBook] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [filtered, setFiltered] = useState(false);
@@ -98,7 +98,7 @@ function Books() {
 
   return (
     <>
-      <Navigation />
+      <Navigation appData={appData}/>
       <div className="book-display" >
         <div className='head'>
           <h1 id="grab">CATALOGUE</h1>
