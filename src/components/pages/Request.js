@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate, useOutletContext } from 'react-router-dom';
+import { useNavigate, useOutletContext, Link } from 'react-router-dom';
 
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -33,13 +33,11 @@ function Request() {
 
   function handleSubmit(e, id) {
     e.preventDefault();
-
     const url = "/api/requests/" + id + "/complete";
 
     //Put request to close the open grab request
     axios.put(url, {id})
     .then(res => {
-      console.log(res);
       setOpenReq(prev => [...prev, res.data.id]);
       navigate("/request");
     })
@@ -48,14 +46,11 @@ function Request() {
 
   function handleClose(e, id) {
     e.preventDefault();
-    console.log(id);
-
     const url = "/api/requests/" + id;
 
     //Delete request to undo the open grab request
     axios.delete(url)
     .then(res => {
-      console.log(res);
       setOpenReq(prev => prev.pop());
       navigate("/request");
     })
@@ -80,7 +75,7 @@ function Request() {
             {requestData.map(data => {
             return (
               <tr key={Math.random()}>
-                <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
+                <td><Link to={"/books/" + data.resource_id}>{data.resource_title}</Link></td>
                 <td>{data.requestee_first_name} {data.requestee_last_name}</td>
                 <td>{data.requestee_email}</td>  
                 <td>{data.created_at.slice(0,10)}</td>  
@@ -120,7 +115,7 @@ function Request() {
             {requestRec.map(data => {
             return (
               <tr key={Math.random()}>
-                <td><a href={"/books/" + data.resource_id}>{data.resource_title}</a></td>
+                <td><Link to={"/books/" + data.resource_id}>{data.resource_title}</Link></td>
                 <td>{data.requester_first_name} {data.requester_last_name}</td>
                 <td>{data.requester_email}</td>
                 <td>{data.created_at.slice(0,10)}</td>
