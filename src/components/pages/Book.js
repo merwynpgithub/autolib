@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from '../Navigation';
 import '../styles/book.scss';
 import addressConverter from '../../helper/address-converter';
+import { getAvailability } from '../../helper/book-utilities';
 
 function Book() {
   let navigate = useNavigate();
@@ -16,6 +17,7 @@ function Book() {
   const [status, setStatus] = useState({});
   const [hasBook, setHasBook] = useState(false);
   const [mapUrl, setMapUrl] = useState("");
+  let user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : undefined;
 
   // For Grab button
   let notLogged = true;
@@ -39,7 +41,9 @@ function Book() {
     //Load the single Book
     const url = "/api/resources/" + bookId;
     axios.get(url).then(res => {
-      setBookDetails(res.data);
+      const record = res.data;
+      const newBookDetails = { ...record, status: { ...record.status }};
+      setBookDetails(newBookDetails);
       setStatus(res.data.status);
 
       //Check if user has that book
@@ -83,13 +87,12 @@ function Book() {
             <div className='inner_1'>
               <p className='bold author'>by {bookDetails.authors}</p>
               <br />
-              <p><span className="bold">GENREs:</span> {bookDetails.genres}</p>
+              <p><span className="bold">Genre(s):</span> {bookDetails.genres}</p>
               <p><span className="bold">ISBN:</span> {bookDetails.isbn}</p>
-              <p><span className="bold">Status:</span> {status.text}</p>
+              
               <br />
               <p>{bookDetails.description}</p>
-              {hasBook && <p className="in-possession">This Book is in your possession</p>}
-              {status.availableAt && <p className="in-possession">This book will be available on {status.availableAt.slice(0,10)}</p>}
+              <div className="status-info">{getAvailability(bookDetails, user)}</div>
             </div>
             <div className='inner_2'>
               {status.text === "available" && notLogged && 

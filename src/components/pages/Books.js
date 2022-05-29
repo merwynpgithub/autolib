@@ -8,6 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from '../Navigation';
 import '../styles/grab.scss';
 
+import { getAvailability } from '../../helper/book-utilities';
+
 function Books() {
   const appData = useOutletContext();
 
@@ -61,38 +63,12 @@ function Books() {
     return s;
   }
   
-  const getAvailability = book => {
-    if (!user) return;
-    let s = '';
-    if (!book.status?.available) {
-      if (book.current_possessor_id!==user.id) {
-        if (book.status?.availableAt) {
-          s = <p className="unavailable">Available {new Date(book.status.availableAt).toLocaleDateString()}</p>;
-        } else {
-          s = <p className="unavailable">Available soon</p>;
-        }
-      } else {
-        if (book.status?.text!=="requested") {
-          console.log(book.title, book.status)
-          s = <p className="in-my-possession">Yours until {new Date(book.status.availableAt).toLocaleDateString()}</p>;  
-        } else {
-          s = <p className="requested-of-me">Requested of you</p>;  
-        }
-      }
-    } else {
-      if (book.current_possessor_id===user.id) {
-        s = <p className="in-my-possession">You have this book</p>;
-      }
-    }
-    return s;
-  }
-
   const bookList = book.filter(b => !filtered || b.status?.available).map(book => {
     return (
       <div className="book" key={book.id}>
         <a href={"/books/" + book.id}><img src={book.cover_image || defaultImageUrl} alt={book.title} loading="lazy" /></a>
         <p className='title'>{book.title}</p>
-        {getAvailability(book)}
+        {getAvailability(book, user, true)}
         {getRequestLink(book)}
       </div>
     );

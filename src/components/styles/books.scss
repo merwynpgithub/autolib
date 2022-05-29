@@ -51,6 +51,7 @@ body {
   width: 25%;
   margin-top: 5%;
   img {
+    box-shadow: 5px 5px 5px rgba(101, 101, 101, 0.274);
     height: 250px;
   }
   .title {
@@ -89,8 +90,13 @@ body {
 
     .filter {
       width:500px;
+      display: flex;
+      align-items: center;
       .form-check-label {
-      color:white;
+        color:white;
+      }
+      .form-check-input {
+        margin-right: 5px;
       }
     }
 
@@ -122,7 +128,7 @@ body {
   margin: 5% 10% 0 10%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -177,6 +183,12 @@ body {
 
 .swiper-slide-shadow {
   display: none;
+}
+
+.swiper {
+  img {
+    box-shadow: 3px 3px 3px rgba(101, 101, 101, 0.1);
+  }
 }
 
 main {
@@ -275,6 +287,7 @@ main {
     img {
       width: 70%;
       height: auto;
+      box-shadow: 5px 5px 5px rgba(101, 101, 101, 0.124);  
     }
   }
 }
