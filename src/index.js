@@ -25,9 +25,8 @@ root.render(
           <Route path="/" element={<Home appData={appData} />}/>
           <Route path="/new" element={<NewBook appData={appData} />}/>
           <Route path="/about" element={<About appData={appData} />}/>
-          <Route path="/books" element={<Books appData={appData} />}>
-            <Route path=":bookId" element={<Book />}/>
-          </Route>
+          <Route path="/books" element={<Books appData={appData} />}/>
+          <Route path="/books/:bookId" element={<Book />}/>
           <Route path="/login" element={<Login appData={appData} />}/>
           <Route path="/register" element={<Register appData={appData} />}/>
           <Route path="/user" element={<User appData={appData} />}/>
