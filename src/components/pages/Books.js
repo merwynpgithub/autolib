@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 import { Form, Button, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,13 +11,13 @@ import '../styles/grab.scss';
 import { getAvailability } from '../../helper/book-utilities';
 
 function Books() {
+  const appData = useOutletContext();
+
   const [book, setBook] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [filtered, setFiltered] = useState(false);
   const navigate = useNavigate();
-
-  const user = JSON.parse(localStorage.getItem("user"));
-
+  
   function handleSearch(e) {
     e.preventDefault();
     const url = "/api/resources?withStatus&find=" + searchValue;
@@ -52,7 +52,7 @@ function Books() {
     .catch(err => console.log(err));
   }
 
-  const getRequestLink = book => {
+  const getRequestLink = (book, user) => {
     if (!user) return;
     let s = '';
     if (book.status?.available && book.current_possessor_id!==user.id) {
@@ -66,15 +66,15 @@ function Books() {
       <div className="book" key={book.id}>
         <a href={"/books/" + book.id}><img src={book.cover_image || defaultImageUrl} alt={book.title} loading="lazy" /></a>
         <p className='title'>{book.title}</p>
-        {getAvailability(book, user, true)}
-        {getRequestLink(book)}
+        {getAvailability(book, appData.user, true)}
+        {getRequestLink(book, appData.user)}
       </div>
     );
   });
 
   return (
     <>
-      <Navigation />
+      <Navigation appData={appData}/>
       <div className="book-display" >
         <div className='head'>
           <h1 id="grab">CATALOGUE</h1>

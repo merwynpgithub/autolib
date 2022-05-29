@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Container, Navbar, Nav, Dropdown, DropdownButton } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,24 +7,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/nav.scss';
 import axios from 'axios';
 
-function Navigation() {
-  const [islogged, setLogged] = useState(localStorage.islogged || false);
-  const [receivedRequests, setReceivedRequests] = useState("");
+function Navigation({appData}) {
 
-  if (localStorage.getItem("user")) {
+  const [receivedRequests, setReceivedRequests] = useState("");
+  useEffect(() => {
     axios.get("/api/requests/from_others_for_me")
     .then(res => {
       const openRequests = res.data.filter(req => req.completed_at === null);
       if (openRequests.length >= 1) setReceivedRequests(openRequests.length);
     })
     .catch(err => console.log(err));
-  }
+  },[])
 
-  function handleClick(e) {
-    //Use Local storage to set and clear logged in users
-    localStorage.removeItem("islogged");
-    localStorage.removeItem("user");
-  }
   return (
     <>
     <Navbar className='navbar' expand="lg">
@@ -31,24 +26,25 @@ function Navigation() {
           <div className='sec_1'>
             <img src="/logo.png" alt="autolib logo" className='logo'/>
             <Nav className="nav_links">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link href="/books">Catalogue</Nav.Link>
+              <Link className="nav-link" to={`/`} key={1}>Home</Link>
+              <Link className="nav-link" to={`/about`} key={2}>About</Link>
+              <Link className="nav-link" to={`/books`} key={3}>Catalogue</Link>              
             </Nav>
           </div>
 
           <Nav>
-            {!islogged && <Nav.Link href="/register">Sign Up</Nav.Link>}
-            {!islogged && <Nav.Link href="/login">Sign In</Nav.Link>}
-            {islogged && localStorage.getItem("user") && 
+            {!appData?.isLoggedIn && <Link className="nav-link" to={`/register`} key={4}>Register</Link>}
+            {!appData?.isLoggedIn && <Link className="nav-link" to={`/login`} key={5}>Sign In</Link>}
+            {appData?.isLoggedIn && 
             <>
-              <Nav.Link href="/new">Add Book</Nav.Link>
-              <DropdownButton variant='info' id="dropdown-variants-Info" title={JSON.parse(localStorage.user)["first_name"]}>
-                <Dropdown.Item href="/user">Profile</Dropdown.Item>
-                <Dropdown.Item href="/request">Requests 
-                {receivedRequests && <span className="open-requests">{receivedRequests}</span>} 
-                </Dropdown.Item>
-                <Dropdown.Item href="/" onClick={handleClick}>Logout</Dropdown.Item>
+              <Link className="nav-link" to={`/new`} key={6}>Add Book</Link>              
+              <DropdownButton variant='info' id="dropdown-variants-Info" title={appData.user.first_name}>
+                <Link className="dropdown-item" to={`/user`} key={7}>Profile</Link>
+                <Link className="dropdown-item" to={`/request`} key={8}>
+                  Requests
+                  {receivedRequests && <span className="open-requests">{receivedRequests}</span>} 
+                </Link>
+                <Dropdown.Item href="/" onClick={appData.logout}>Logout</Dropdown.Item>
               </DropdownButton>
             </>
             }

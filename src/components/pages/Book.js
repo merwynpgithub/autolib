@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 import {useParams} from 'react-router-dom';
 import {Form, Button} from 'react-bootstrap';
@@ -12,6 +12,7 @@ import addressConverter from '../../helper/address-converter';
 import { getAvailability } from '../../helper/book-utilities';
 
 function Book() {
+  const appData = useOutletContext();
   let navigate = useNavigate();
   const [bookDetails, setBookDetails] = useState({});
   const [status, setStatus] = useState({});
@@ -41,6 +42,7 @@ function Book() {
     //Load the single Book
     const url = "/api/resources/" + bookId;
     axios.get(url).then(res => {
+      console.log(res.data);
       const record = res.data;
       const newBookDetails = { ...record, status: { ...record.status }};
       setBookDetails(newBookDetails);
@@ -72,7 +74,7 @@ function Book() {
 
   return (
     <>
-      <Navigation/>
+      <Navigation appData={appData}/>
       <div className='book_wrapper'>
         <div className='section_1'>
           <img 

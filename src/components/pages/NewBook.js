@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/books.scss';
@@ -13,11 +13,7 @@ let cover_image;
 
 function NewBook() {
   let navigate = useNavigate();
-
-  //For Submit button
-  let notLogged = true;
-  if (localStorage.getItem("user")) notLogged = false;
-
+  const appData = useOutletContext();
 
   function handleBlur(e) {
     const URL = "/api/openlibrary/by_isbn/";
@@ -55,8 +51,8 @@ function NewBook() {
     const title = document.getElementById("title").value;
     const description = document.getElementById("title").value;
     const genres = document.getElementById("genres").value;
-    const current_possessor_id = localStorage.user.id;
-    const ownerId = localStorage.user.id;
+    const current_possessor_id = appData.user.id;
+    const ownerId = appData.user.id;
     const status = "available";
 
     //post book data
@@ -79,7 +75,7 @@ function NewBook() {
   return (
 
     <>
-    <Navigation />
+    <Navigation appData={appData} />
     <div className='add-a-book'>
       <div className="book-form">
       <h2>ADD A BOOK</h2>
@@ -110,17 +106,17 @@ function NewBook() {
             <Form.Label>Description</Form.Label>
             <Form.Control as="textarea" rows={3} />
           </Form.Group>
-          {notLogged && <Button className='button' type="submit" disabled>
+          {!appData.isLoggedIn && <Button className='button' type="submit" disabled>
             Sign In to Submit
           </Button>}
-          {!notLogged && <Button className='button' type="submit">
+          {appData.isLoggedIn && <Button className='button' type="submit">
             Submit
           </Button>}
         </Form>
       </div>
 
       <div className="book-image">
-        <img src={ defaultImageUrl} />
+        <img src={ defaultImageUrl } alt="Placeholder for Cover" />
       </div>
     </div>
     </>

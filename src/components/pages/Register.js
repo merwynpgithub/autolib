@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 function Register() {
+  const appData=useOutletContext();
   const [err, setErr] = useState("");
   let navigate = useNavigate();
   
@@ -21,13 +22,8 @@ function Register() {
     //POST request
     axios.post("/api/users", user)
       .then(res => {
-        //Use Local storage to set new users
-        localStorage.setItem("user", JSON.stringify(user));
-        axios.post("/login", {email})
+        appData.login({email})
         .then(res => {
-          //Use Local storage to set and clear logged in users
-        localStorage.setItem("islogged", true);
-        localStorage.setItem("user", JSON.stringify(res.data));
           navigate("/");
         })
       })

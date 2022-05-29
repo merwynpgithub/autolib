@@ -1,12 +1,14 @@
 import React from 'react';
 import Navigation from '../Navigation';
-
+import { useOutletContext } from 'react-router-dom';
 import '../styles/about.scss';
 
 function About() {
+  const appData = useOutletContext();
+
   return (
     <>
-    <Navigation />
+    <Navigation appData={appData}/>
     <main className='about-main'>
       <div className='about-header'>
         <h1>ABOUT US</h1>
