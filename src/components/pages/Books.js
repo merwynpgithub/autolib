@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import { useNavigate, useOutletContext } from 'react-router-dom';
+import { useNavigate, useOutletContext, Link } from 'react-router-dom';
 
 import { Form, Button, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -64,7 +64,7 @@ function Books() {
   const bookList = book.filter(b => !filtered || b.status?.available).map(book => {
     return (
       <div className="book" key={book.id}>
-        <a href={"/books/" + book.id}><img src={book.cover_image || defaultImageUrl} alt={book.title} loading="lazy" /></a>
+        <Link to={`/books/${book.id}`}><img src={book.cover_image || defaultImageUrl} alt={book.title} loading="lazy" /></Link>
         <p className='title'>{book.title}</p>
         {getAvailability(book, appData.user, true)}
         {getRequestLink(book, appData.user)}
