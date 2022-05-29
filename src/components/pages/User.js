@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useOutletContext} from 'react-router-dom';
 
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,12 +10,11 @@ import '../styles/user.scss';
 import BookThumb from './UserBookThumb';
 
 function User() {
-  const user = JSON.parse(localStorage.user);
-
+  const appData = useOutletContext();
   // Store the list of books currently in user's possession
   const [bookP, setBookP] = useState([]);
 
-  const [profile, setProfile] = useState(user);
+  const [profile, setProfile] = useState(appData.user);
 
 
   const updateProfileState = (e) => {
@@ -24,19 +23,14 @@ function User() {
     setProfile(newState);
   }
 
-  function updateDb(e) {
-    axios.put("/api/users", profile).then(res => {
-      // Use Local storage to set new users
-      localStorage.setItem("user", JSON.stringify(profile));
-    }).catch(err => console.log(err));
-  }
+  const updateDb = () => appData.updateUser(profile);
 
   useEffect(() => {
-    const url = "/api/resources?withStatus&current_possessor_id=" + user.id;
+    const url = "/api/resources?withStatus&current_possessor_id=" + appData.user?.id;
     axios.get(url).then(res => {
       setBookP(res.data);
     })
-  }, [user.id])
+  }, [appData.user?.id])
 
   const booksPossessed = bookP.map(book => <BookThumb book={book} key={book.id}/>);
   
@@ -61,10 +55,10 @@ function User() {
 
   return (
     <>
-      <Navigation/>
+      <Navigation appData={appData}/>
       <div className="user-container">
         <p className='header'>Your Profile</p>
-        <p>Name: {user.first_name} {user.last_name}</p>
+        <p>Name: {appData.user.first_name} {appData.user.last_name}</p>
         <div>
 
           <div style={{display: "flex", justifyContent: "space-between"}}>
@@ -130,7 +124,7 @@ function User() {
                   name="province"
                   onChange={updateProfileState}  
                   onBlur={updateDb}
-                  defaultValue={user.province}
+                  defaultValue={appData.user.province}
                 >
                   <option>Please select your province</option>
                   {getProvinceOptions()}
