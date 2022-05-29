@@ -27,6 +27,18 @@ export default function useApplicationData(initialState) {
     });
   };
 
+  const updateUser = (user) => {
+    return new Promise((resolve, reject) => {
+      axios.put("/api/users", user)
+        .then(res => {
+          setUser(res.data);
+          console.log(`Updated user record successfully`);
+          resolve();
+        })
+        .catch(reject);
+    })
+  }
+
   const logout = () => {
     axios.get("/logout")
       .then(() => {
@@ -41,6 +53,7 @@ export default function useApplicationData(initialState) {
     isLoggedIn,
     login,
     getUserFromServer,
+    updateUser,
     logout,
   }
 
