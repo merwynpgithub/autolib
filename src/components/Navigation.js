@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Container, Navbar, Nav, Dropdown, DropdownButton } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,14 +10,14 @@ import axios from 'axios';
 function Navigation({appData}) {
 
   const [receivedRequests, setReceivedRequests] = useState("");
-  if (localStorage.getItem("user")) {
+  useEffect(() => {
     axios.get("/api/requests/from_others_for_me")
     .then(res => {
       const openRequests = res.data.filter(req => req.completed_at === null);
       if (openRequests.length >= 1) setReceivedRequests(openRequests.length);
     })
     .catch(err => console.log(err));
-  }
+  },[])
 
   return (
     <>
