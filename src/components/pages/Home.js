@@ -3,6 +3,7 @@ import { useOutletContext } from 'react-router-dom';
 import axios from 'axios';
 
 import Navigation from '../Navigation';
+import Footer from '../Footer';
 import '../styles/books.scss';
 
 // Import Swiper React components
@@ -68,6 +69,8 @@ function Home() {
         </div>
       </div>
     </main>
+    <Footer />
+
     </>
     
   );
