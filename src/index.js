@@ -33,7 +33,6 @@ root.render(
           <Route path="/request" element={<Request appData={appData} />}/>
         </Route>
       </Routes>
-      <Footer />
     </BrowserRouter>
   </React.StrictMode>
 );
