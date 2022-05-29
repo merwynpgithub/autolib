@@ -39,10 +39,11 @@ function Navigation({appData}) {
             <>
               <Link className="nav-link" to={`/new`} key={6}>Add Book</Link>              
               <DropdownButton variant='info' id="dropdown-variants-Info" title={appData.user.first_name}>
-                <Dropdown.Item href="/user">Profile</Dropdown.Item>
-                <Dropdown.Item href="/request">Requests 
-                {receivedRequests && <span className="open-requests">{receivedRequests}</span>} 
-                </Dropdown.Item>
+                <Link className="dropdown-item" to={`/user`} key={7}>Profile</Link>
+                <Link className="dropdown-item" to={`/request`} key={8}>
+                  Requests
+                  {receivedRequests && <span className="open-requests">{receivedRequests}</span>} 
+                </Link>
                 <Dropdown.Item href="/" onClick={appData.logout}>Logout</Dropdown.Item>
               </DropdownButton>
             </>
