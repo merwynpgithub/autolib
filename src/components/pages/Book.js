@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 import {useParams} from 'react-router-dom';
 import {Form, Button} from 'react-bootstrap';
@@ -12,6 +12,7 @@ import addressConverter from '../../helper/address-converter';
 import { getAvailability } from '../../helper/book-utilities';
 
 function Book() {
+  const appData = useOutletContext();
   let navigate = useNavigate();
   const [bookDetails, setBookDetails] = useState({});
   const [status, setStatus] = useState({});
@@ -28,11 +29,8 @@ function Book() {
   
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(bookId);
-
     axios.post("/api/requests", { "resourceId": bookId })
     .then(res => {
-      console.log("post api request", res);
       navigate("/request");
     })
     .catch(err => console.log(err));
@@ -72,7 +70,7 @@ function Book() {
 
   return (
     <>
-      <Navigation/>
+      <Navigation appData={appData}/>
       <div className='book_wrapper'>
         <div className='section_1'>
           <img 
