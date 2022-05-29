@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { Container, Navbar, Nav, Dropdown, DropdownButton } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,6 +8,7 @@ import './styles/nav.scss';
 import axios from 'axios';
 
 function Navigation({appData}) {
+
   const [receivedRequests, setReceivedRequests] = useState("");
   if (localStorage.getItem("user")) {
     axios.get("/api/requests/from_others_for_me")
@@ -17,11 +19,6 @@ function Navigation({appData}) {
     .catch(err => console.log(err));
   }
 
-  function handleClick(e) {
-    //Use Local storage to set and clear logged in users
-    localStorage.removeItem("islogged");
-    localStorage.removeItem("user");
-  }
   return (
     <>
     <Navbar className='navbar'>
@@ -29,19 +26,19 @@ function Navigation({appData}) {
           <div className='sec_1'>
             <img src="/logo.png" alt="autolib logo" className='logo'/>
             <Nav className="nav_links">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link href="/books">Catalogue</Nav.Link>
+              <Link className="nav-link" to={`/`} key={1}>Home</Link>
+              <Link className="nav-link" to={`/about`} key={2}>About</Link>
+              <Link className="nav-link" to={`/books`} key={3}>Catalogue</Link>              
             </Nav>
           </div>
 
           <Nav>
-            {!appData?.isLoggedIn && <Nav.Link href="/register">Sign Up</Nav.Link>}
-            {!appData?.isLoggedIn && <Nav.Link href="/login">Sign In</Nav.Link>}
+            {!appData?.isLoggedIn && <Link className="nav-link" to={`/register`} key={4}>Register</Link>}
+            {!appData?.isLoggedIn && <Link className="nav-link" to={`/login`} key={5}>Sign In</Link>}
             {appData?.isLoggedIn && 
             <>
-              <Nav.Link href="/new">Add Book</Nav.Link>
-              <DropdownButton variant='info' id="dropdown-variants-Info" title={appData.state.user.first_name}>
+              <Link className="nav-link" to={`/new`} key={6}>Add Book</Link>              
+              <DropdownButton variant='info' id="dropdown-variants-Info" title={appData.user.first_name}>
                 <Dropdown.Item href="/user">Profile</Dropdown.Item>
                 <Dropdown.Item href="/request">Requests 
                 {receivedRequests && <span className="open-requests">{receivedRequests}</span>} 
