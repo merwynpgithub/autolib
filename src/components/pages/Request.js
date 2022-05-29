@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,6 +12,8 @@ import Navigation from '../Navigation';
 import '../styles/request.scss';
 
 function Request() {
+  const appData = useOutletContext();
+
   let navigate = useNavigate();
   const [requestData, setRequestData] = useState([]);
   const [requestRec, setRequestRec] = useState([]);
@@ -62,7 +64,7 @@ function Request() {
 
   return (
     <>
-    <Navigation />
+    <Navigation appData={appData}/>
     <div className="request-container" >
       <p className="request-header">Requests Sent</p>
       {requestData.length > 0 && 
