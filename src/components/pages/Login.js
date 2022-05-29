@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Login({appData}) {
+function Login() {
   const [err, setErr] = useState("")
+  const appData = useOutletContext();
   let navigate = useNavigate();
 
   function handleSubmit(e) {

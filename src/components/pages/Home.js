@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
 import axios from 'axios';
 
 import Navigation from '../Navigation';
@@ -15,6 +16,7 @@ import { EffectCards } from "swiper";
 
 
 function Home() {
+  const appData = useOutletContext();
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ function Home() {
 
   return (
     <>
-    <Navigation />
+    <Navigation appData={appData}/>
     <div className="hero" >
       <div className='section_1'>
         <p className='header'>A NEW WAY TO READ</p>

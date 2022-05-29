@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 import { Form, Button, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,7 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from '../Navigation';
 import '../styles/grab.scss';
 
-function Books({appData}) {
+function Books() {
+  const appData = useOutletContext();
+
   const [book, setBook] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [filtered, setFiltered] = useState(false);
