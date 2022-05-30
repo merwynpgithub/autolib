@@ -9,6 +9,9 @@ $orange: #DD5400;
 
 .navbar {
   background-color: black;
+  .navbar-toggler-icon {
+    background-color: white;
+  }
   .logo {
     width: 55px;
     height: 55px;

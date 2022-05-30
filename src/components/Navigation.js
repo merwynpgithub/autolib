@@ -21,16 +21,20 @@ function Navigation({appData}) {
 
   return (
     <>
-    <Navbar className='navbar'>
+    <Navbar collapseOnSelect expand="lg" className='navbar'>
         <Container fluid>
+          <img src="/logo.png" alt="autolib logo" className='logo'/>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
           <div className='sec_1'>
-            <img src="/logo.png" alt="autolib logo" className='logo'/>
             <Nav className="nav_links">
               <Link className="nav-link" to={`/`} key={1}>Home</Link>
               <Link className="nav-link" to={`/about`} key={2}>About</Link>
               <Link className="nav-link" to={`/books`} key={3}>Catalogue</Link>              
             </Nav>
           </div>
+          </Nav>
 
           <Nav>
             {!appData?.isLoggedIn && <Link className="nav-link" to={`/register`} key={4}>Register</Link>}
@@ -49,6 +53,7 @@ function Navigation({appData}) {
             </>
             }
           </Nav>
+          </Navbar.Collapse>
         </Container>
 
     </Navbar>
