@@ -62,6 +62,7 @@ function Request() {
     <Navigation appData={appData}/>
     <div className="request-container" >
       <p className="request-header">Requests Sent</p>
+      <div className="requests">
       {requestData.length > 0 && 
         <table>
           <tbody>
@@ -94,14 +95,17 @@ function Request() {
             })}
           </tbody>
         </table>
+        
       }
       {requestData.length === 0 && 
         <p>You have not sent any book request.</p>
       }
+      </div>
     </div>
 
     <div className="request-container" >
       <p className="request-header">Requests Received</p>
+      <div className="requests">
       {requestRec.length > 0 && 
         <table>
           <tbody>
@@ -132,6 +136,7 @@ function Request() {
       {requestRec.length === 0 && 
         <p>You have not received any book request.</p>
       }
+      </div>
     </div>
     </>
   );

@@ -27,7 +27,8 @@ $font_paragraph: 'Inter', sans-serif;
       }
     }
     td:last-child, tr:last-child {
-      width: 40%;
+      min-width: 165px;
+      text-align: center;
     }
     tr {
       border-bottom: solid 1px rgb(194, 194, 194);
@@ -38,6 +39,17 @@ $font_paragraph: 'Inter', sans-serif;
     }
     .open {
       color: #DD5400;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .requests {
+    overflow-x: auto;
+    table {
+      td, th {
+        font-size: 0.75em;
+      }
     }
   }
 }
