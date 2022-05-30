@@ -20,7 +20,7 @@ function Book() {
   const [mapUrl, setMapUrl] = useState("");
 
   // For Grab button
-  let notLogged = true;
+  let notLogged = !appData?.user?.id;
  
   const parameter = useParams();
   const bookId = Number(parameter.bookId);
@@ -43,7 +43,7 @@ function Book() {
       setStatus(res.data.status);
 
       //Check if user has that book
-      if (appData.user) {
+      if (appData.user.id) {
         const url = "/api/resources?current_possessor_id=" + appData.user.id;
         axios.get(url).then(data => {
           const booksPossessed = data.data;
@@ -59,7 +59,7 @@ function Book() {
       }
       
     });
-  }, [bookId])
+  }, [bookId, appData.user])
 
   const defaultImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqlyVgjqhw65UtsRfTi-zafiSFb7zitbpQAjcrlqKZcCgBiDyWv4MV4CbgVcxFlXtf-8I&usqp=CAU";
 
