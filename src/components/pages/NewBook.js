@@ -7,7 +7,6 @@ import '../styles/books.scss';
 import axios from 'axios';
 
 import Navigation from '../Navigation';
-import Footer from '../Footer';
 
 const defaultImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqlyVgjqhw65UtsRfTi-zafiSFb7zitbpQAjcrlqKZcCgBiDyWv4MV4CbgVcxFlXtf-8I&usqp=CAU";
 let cover_image;
@@ -120,7 +119,6 @@ function NewBook() {
         <img src={ defaultImageUrl } alt="Placeholder for Cover" />
       </div>
     </div>
-    <Footer />
     </>
   );
 }

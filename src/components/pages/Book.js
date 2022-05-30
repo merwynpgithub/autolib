@@ -10,7 +10,6 @@ import Navigation from '../Navigation';
 import '../styles/book.scss';
 import addressConverter from '../../helper/address-converter';
 import { getAvailability } from '../../helper/book-utilities';
-import Footer from '../Footer';
 
 function Book() {
   const appData = useOutletContext();
@@ -96,7 +95,6 @@ function Book() {
           </div>
   
         </div>
-        <Footer />
       </>
     );
   }

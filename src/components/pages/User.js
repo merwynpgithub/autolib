@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from '../Navigation';
 import '../styles/user.scss';
 import BookThumb from './UserBookThumb';
-import Footer from '../Footer';
 
 function User() {
   const appData = useOutletContext();
@@ -160,7 +159,6 @@ function User() {
 
       </div>
       
-      <Footer />
     </>
   );
 }
