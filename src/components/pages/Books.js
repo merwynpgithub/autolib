@@ -31,14 +31,8 @@ function Books() {
   }
   
   useEffect(() => {
-    
     axios.get("/api/resources?withStatus").then(res => {
-      const bookCheck = res.data.map(book => {
-        const bookRecord = { ...book, status: { ...book.status} };
-        if (book.status.available) return {...bookRecord, canGrab: true };
-        else return {...book, canGrab: false };
-      });
-      setBook(bookCheck);
+      setBook(res.data);
     });
   }, [])
   
