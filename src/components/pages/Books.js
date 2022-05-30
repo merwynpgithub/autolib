@@ -6,6 +6,7 @@ import { Form, Button, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Navigation from '../Navigation';
+import Footer from '../Footer';
 import '../styles/grab.scss';
 
 import { getAvailability } from '../../helper/book-utilities';
@@ -97,6 +98,7 @@ function Books() {
         
         <div className="books_grab" >{bookList} </div>
       </div>
+      <Footer />
     </>
   );
 }

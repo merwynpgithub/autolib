@@ -368,4 +368,15 @@ main {
 
     }
   }
+
+  .add-a-book {
+    .book-form, .book-image {
+      width: 85%;
+      margin: auto;
+      form {
+        margin-bottom: 10%;
+      }
+    }
+    flex-direction: column;
+  }
 }
