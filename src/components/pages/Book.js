@@ -75,7 +75,7 @@ function Book() {
               <div className='inner_2'>
                 {bookDetails.status.available && !appData.isLoggedIn && 
                   <Form>
-                    <Button variant="primary" type="submit" disabled>
+                    <Button className='button' type="submit" disabled>
                       Sign In to Request
                     </Button>
                   </Form>}
