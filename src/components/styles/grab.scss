@@ -113,3 +113,65 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
+
+
+
+@media only screen and (max-width: 1100px) {
+  .book-display {
+    .head {
+      flex-wrap: wrap;
+      #grab {
+        font-size: 24px;
+        text-align: center;
+        width: 75%;
+        margin: auto;
+      }
+      .search {
+        width: 75%;
+        margin: auto;
+        .filter {
+          display: none;
+        }
+        input {
+          width: 70%;
+        }
+      }
+      .button {
+        font-size: 0.75em;
+        max-width: 70px;
+      }
+    }
+    .books_grab {
+      .book {
+        width: 250px;
+        img {
+          height: 200px;
+        }
+      }
+    }
+
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .book {
+    img {
+      height: 175px;
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .head {
+    .search {
+      input {
+        width: 70%;
+      }
+    }
+    .button {
+      width: 25%;
+    }
+  }
+
+
+}
