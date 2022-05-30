@@ -18,12 +18,10 @@ function Book() {
   const [status, setStatus] = useState({});
   const [hasBook, setHasBook] = useState(false);
   const [mapUrl, setMapUrl] = useState("");
-  let user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : undefined;
 
   // For Grab button
   let notLogged = true;
-  if (localStorage.getItem("user")) notLogged = false;
-
+ 
   const parameter = useParams();
   const bookId = Number(parameter.bookId);
   
@@ -45,17 +43,14 @@ function Book() {
       setStatus(res.data.status);
 
       //Check if user has that book
-      if (localStorage.getItem("user")) {
-        const user = JSON.parse(localStorage.user);
-
-        const url = "/api/resources?current_possessor_id=" + user.id;
+      if (appData.user) {
+        const url = "/api/resources?current_possessor_id=" + appData.user.id;
         axios.get(url).then(data => {
           const booksPossessed = data.data;
           const currentBook = res.data;
           //Update if user has book
           const doesHaveBook = booksPossessed.filter(book => book.id === currentBook.id);
-          doesHaveBook.length >= 1 ? setHasBook(true) : setHasBook(false);
-
+          setHasBook(doesHaveBook.length >= 1);
           //Show the book location in a map
           const urlSrc = addressConverter(res.data);
           setMapUrl(urlSrc);
@@ -90,7 +85,7 @@ function Book() {
               
               <br />
               <p>{bookDetails.description}</p>
-              <div className="status-info">{getAvailability(bookDetails, user)}</div>
+              <div className="status-info">{getAvailability(bookDetails, appData.user)}</div>
             </div>
             <div className='inner_2'>
               {status.text === "available" && notLogged && 
@@ -99,7 +94,7 @@ function Book() {
                     Sign In to Request
                   </Button>
                 </Form>}
-                {status.text === "available" && localStorage.getItem("user") && !hasBook &&
+                {status.text === "available" && appData.user && !hasBook &&
                 <Form onSubmit={handleSubmit}>
                   <Button className='button' type="submit">
                     Get This Book
@@ -107,7 +102,7 @@ function Book() {
                 </Form>}
             </div>
           </div>
-          {localStorage.getItem("user") && !hasBook && <div>
+          {appData.user && !hasBook && <div>
             <p className="bold">Book Location:</p>
             <br />
             <iframe style={{width: "100%", height: "300px"}} id="gmap_canvas" src={mapUrl}></iframe>
