@@ -6,7 +6,7 @@ import {Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { TiTick } from "react-icons/ti";
-import { TiTimes } from "react-icons/ti";
+import { BsTrash } from "react-icons/bs";
 
 import Navigation from '../Navigation';
 import '../styles/request.scss';
@@ -87,7 +87,7 @@ function Request() {
                     <Button variant="success" type="submit"><TiTick /></Button>
                   </Form>
                   <Form style={{display:"inline", marginLeft: "1em"}} onSubmit={(e) => handleClose(e, data.id)}>
-                    <Button variant="danger" type="submit"><TiTimes /></Button>
+                    <Button variant="danger" type="submit"><BsTrash /></Button>
                   </Form>
                 </td> }
               </tr>
