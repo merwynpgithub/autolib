@@ -45,5 +45,8 @@
     "sass": "^1.51.0",
     "webpack-cli": "^4.9.2"
   },
+  "overrides": {
+    "autoprefixer": "10.4.5"
+  },
   "proxy": "http://localhost:8001"
 }
