@@ -1,4 +1,5 @@
 # AutoLib App. 
+Developed by [Chérie](https://github.com/cherieodu), [Merwyn](https://github.com/merwynpgithub) and [Johannes](https://github.com/jowe81).
 
 ## A system to share books with friends in a Library-like way
 
@@ -14,4 +15,6 @@
 ### `npm start`
 
 Open http://localhost:3000 to view it in your browser
+
+![Scrrenshot](public/autolib-books.png)
 
