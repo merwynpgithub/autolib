@@ -1,5 +1,5 @@
 # AutoLib App. 
-Developed by [Chérie](https://github.com/cherieodu), [Merwyn](https://github.com/merwynpgithub) and [Johannes](https://github.com/jowe81).
+Developed by [Johannes](https://github.com/jowe81), [Chérie](https://github.com/cherieodu) and [Merwyn](https://github.com/merwynpgithub).
 
 ## A system to share books with friends in a Library-like way
 
@@ -16,5 +16,5 @@ Developed by [Chérie](https://github.com/cherieodu), [Merwyn](https://github.co
 
 Open http://localhost:3000 to view it in your browser
 
-![Scrrenshot](public/autolib-books.png)
+![Screenshot](public/autolib-books.png)
 
