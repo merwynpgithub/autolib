@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, useOutletContext } from 'react-router-dom';
+import { Link, useNavigate, useOutletContext } from 'react-router-dom';
 
 import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -53,7 +53,7 @@ function Login() {
         {marginTop: "1em"}
       }>
         <p>First time here:
-          <a href="/register" style={{margin: "1.5em"}}>Sign Up</a>
+          <Link to="/register" style={{margin: "1.5em"}}>Sign Up</Link>
         </p>
       </div>
     </div>
