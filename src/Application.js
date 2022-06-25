@@ -10,7 +10,6 @@ import Register from './components/pages/Register';
 import Book from './components/pages/Book';
 import NewBook from './components/pages/NewBook';
 import User from './components/pages/User';
-import Footer from './components/Footer';
 import Request from './components/pages/Request';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
